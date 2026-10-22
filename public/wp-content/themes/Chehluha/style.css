@@ -1,0 +1,7005 @@
+/*
+Theme Name: Chehluha
+Author: Eleuha
+Version: 1.0
+Description: Опис твоєї нової теми
+*/
+
+@font-face {
+  font-family: 'Inter'; /*FreeSans*/
+  src: url('./assets/fonts/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+  font-stretch: 100%; /* Діапазон ширини (wdth) */
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tinos'; /*Liberation Serif*/
+  src: url('./assets/fonts/Tinos-Bold.ttf') format('truetype');
+  font-stretch: 100%; /* Діапазон ширини (wdth) */
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tinos'; /*Liberation Serif*/
+  src: url('./assets/fonts/Tinos-Regular.ttf') format('truetype');
+  font-stretch: 100%; /* Діапазон ширини (wdth) */
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plex Mono'; /*SpaceMono*/
+  src: url('./assets/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plex Mono'; /*SpaceMono*/
+  src: url('./assets/fonts/IBMPlexMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jet Brains';
+  src: url('./assets/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Діапазон жирності */
+  font-stretch: 100%; /* Діапазон ширини (wdth) */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jet Brains';
+  src: url('./assets/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Діапазон жирності */
+  font-stretch: 100%; /* Діапазон ширини (wdth) */
+  font-style: italic;
+  font-display: swap;
+}
+
+* {
+    margin: 0;
+    text-decoration: none;
+}
+
+body {
+  background-color: #161307; /* #161307 */
+  overflow-x: hidden;
+}
+
+header, section, footer {
+  background-color: rgba(22, 19, 7, 0.9);
+}
+
+ul {
+      list-style: none;
+      padding: 0;
+}
+
+@media (min-width: 390px) {
+  html {
+      font-size: 10px;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: var(--color-text-main);
+  }
+
+  .container {
+    width: 358px;
+    margin: 0 auto;
+  }
+
+   header .icon {
+    position: relative;
+   }
+
+  header .icon .custom-cart-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 18%;
+    top: 18%;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--color-accent-orange);
+    color: var(--color-text-main);
+    font-family: 'Plex Mono';
+    font-size: 1rem;
+  }
+
+.ticker {
+    width: 100%;
+    overflow: hidden;
+    color: #FE5F00;
+}
+
+.ticker-track {
+    padding: 0.4rem 0;
+    display: flex;
+    width: max-content;
+    animation: scroll 15s linear infinite;
+}
+
+.ticker-group {
+    display: flex;
+    flex-shrink: 0;
+    gap: 60px;
+    padding-right: 60px;
+}
+
+.ticker-group span {
+    white-space: nowrap;
+    font-family: 'Tinos';
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+header {
+  padding: 1.8rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .icons-left, header .icons-right {
+  display: flex;
+}
+
+header .icons-left a, header .icons-right a {
+  display: block;
+  width: 4.4rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .icons-left a:active, header .icons-right a:active {
+  background-color: #D4C95E;
+  color: #383526;
+}
+
+header .icons-left a:active svg, header .icons-right a:active svg {
+  color: #383526;
+}
+
+header .icons-left a svg, header .icons-right a svg {
+  width: 2rem;
+  height: 2rem;
+  color: #E9E2CC;
+}
+
+header .logo {
+  display: block;
+  font-family: 'Plex Mono';
+  font-weight: 700;
+  font-size: 2rem;
+  color: #D4C95E;
+  align-self: center;
+}
+
+/* =========================================
+   HEADER SIDEBAR
+========================================= */
+
+.header-widget-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+
+    width: 32rem;
+    max-width: 85vw;
+    height: 100dvh;
+
+    box-sizing: border-box;
+
+    padding: 2rem;
+
+    background-color: var(--color-background-container);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    transform: translate3d(-100%, 0, 0);
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+/* =========================================
+   OPEN STATE
+========================================= */
+
+.header-widget-area.is-open {
+    transform: translate3d(0, 0, 0);
+
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   SIDEBAR INNER
+========================================= */
+
+.header-widget-area__inner {
+    position: relative;
+
+    width: 100%;
+    min-height: 100%;
+
+    padding-top: 5rem;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.header-widget-area__close {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 3.2rem;
+    height: 3.2rem;
+
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--color-text-main);
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.header-widget-area__close:hover {
+    color: var(--color-accent-orange);
+}
+
+.header-widget-area__close svg {
+    display: block;
+
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.header-widget-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.header-widget-overlay.is-open {
+    opacity: 1;
+
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   BODY LOCK
+========================================= */
+
+body.menu-open {
+    overflow: hidden;
+}
+
+
+/* =========================================
+   WIDGET
+========================================= */
+
+.header-widget-area .widget {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================
+   WOOCOMMERCE PRODUCT CATEGORIES
+========================================= */
+
+.header-widget-area .wc-block-product-categories {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Main list */
+
+.header-widget-area .wc-block-product-categories-list {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================
+   CATEGORY ITEM
+========================================= */
+
+.header-widget-area
+.wc-block-product-categories-list-item {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    border-bottom: 1px solid rgba(233, 226, 204, 0.12);
+}
+
+
+/* =========================================
+   CATEGORY LINK
+========================================= */
+
+.header-widget-area
+.wc-block-product-categories-list-item > a {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 1.4rem 0;
+
+    font-family: "Plex Mono", monospace;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.5;
+
+    color: var(--color-text-main);
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.header-widget-area
+.wc-block-product-categories-list-item > a:hover {
+    padding-left: 0.6rem;
+
+    color: var(--color-accent-orange);
+}
+
+
+/* =========================================
+   HIDE PRODUCT COUNT
+========================================= */
+
+.header-widget-area
+.wc-block-product-categories-list-item-count {
+    display: none;
+}
+
+
+/* =========================================
+   SUBCATEGORIES
+========================================= */
+
+.header-widget-area
+.wc-block-product-categories-list--depth-1 {
+    margin: 0;
+    padding: 0 0 1rem 1.6rem;
+
+    list-style: none;
+}
+
+.header-widget-area
+.wc-block-product-categories-list--depth-1
+.wc-block-product-categories-list-item {
+    border: 0;
+}
+
+
+/* Subcategory links */
+
+.header-widget-area
+.wc-block-product-categories-list--depth-1
+.wc-block-product-categories-list-item > a {
+    padding: 0.8rem 0;
+
+    font-family: "Jet Brains", monospace;
+    font-size: 1.1rem;
+    font-weight: 400;
+
+    color: var(--color-text-muted);
+}
+
+.header-widget-area
+.wc-block-product-categories-list--depth-1
+.wc-block-product-categories-list-item > a:hover {
+    padding-left: 0.4rem;
+
+    color: var(--color-text-main);
+}
+
+
+/* =========================================
+   REMOVE DEFAULT LIST STYLES
+========================================= */
+
+.header-widget-area ul,
+.header-widget-area ol,
+.header-widget-area li {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+/* Базові змінні кольорів макету */
+:root {
+  --color-accent-orange: #FE5F00;
+  --color-gold: #D4C95E;
+  --color-text-main: #E9E2CC;
+  --color-text-muted: #95917E;
+  --color-background-container: #1E1C0E;
+}
+
+
+/* Стилі картки-слайда */
+.promo-card {
+  height: auto;
+  background-color: var(--color-background-container);
+  border-radius: 1.2rem;
+  padding: 1.6rem 1.6rem 3.2rem 1.6rem;
+  display: flex !important;
+  flex-direction: column;
+  gap: 1.6rem;
+  box-sizing: border-box;
+  color: var(--color-text-main);
+  flex-shrink: 0;
+}
+
+/* Теги / Бейджі */
+.promo-card__tags {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 0.2rem;
+  text-transform: uppercase;
+}
+
+.badge--orange {
+  background-color: var(--color-accent-orange);
+  color: #E9E2CC;
+  font-family: 'Tinos';
+}
+
+.badge--outline {
+  color: var(--color-gold);
+  background-color: #383526;
+  font-family: 'Plex Mono';
+}
+
+/* Заголовок та опис */
+.promo-card__title {
+  font-family: 'Tinos'; /* Або відповідний акцентний шрифт */
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.promo-card__title .accent-code {
+  font-family: 'Plex Mono';
+  color: var(--color-accent-orange);
+  margin-right: 6px;
+}
+
+.promo-card__description {
+  font-family: 'Jet Brains';
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Зображення з плашкою знижки */
+.promo-card__media {
+  position: relative;
+  width: 100%;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.promo-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.promo-card__discount-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(16, 14, 4, 0.9);
+  backdrop-filter: blur(4px);
+  color: var(--color-accent-orange);
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 0.4rem;
+}
+
+/* Кнопки дій */
+.promo-card__actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-family: 'Tinos';
+  border-radius: 0.8rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn--primary {
+  flex: 1;
+  background-color: var(--color-accent-orange);
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  gap: 8px;
+}
+
+.btn--icon {
+  width: 44px;
+  height: 44px;
+  background-color: #383526;
+  color: var(--color-gold);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Стилізація кастомної пагінації Swiper */
+.hero-swiper .swiper-pagination-bullet {
+  background: var(--color-text-muted);
+  opacity: 0.4;
+  width: 1rem;
+  height: 0.6rem;
+  border-radius: 1rem;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  background: var(--color-accent-orange);
+  opacity: 1;
+  width: 2.8rem;
+   border-radius: 1rem;
+}
+
+/* ========================================
+   КАТЕГОРІЇ
+   1rem = 10px
+======================================== */
+
+.arsenal {
+    width: 100%;
+    box-sizing: border-box;
+
+    background-color: #161307;
+
+    padding: 2.4rem 0 1.6rem;
+}
+
+
+.arsenal .container {
+    width: 100%;
+    max-width: 35.8rem;
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.arsenal__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-bottom: 1.8rem;
+}
+
+
+.arsenal__titles {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+.arsenal__label {
+    margin-bottom: 0.4rem;
+
+    font-family: "Plex Mono";
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    letter-spacing: 0.12rem;
+
+    color: var(--color-accent-orange);
+}
+
+
+.arsenal__title {
+    margin: 0;
+
+    font-family: "Tinos", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    color: var(--color-text-main);
+}
+
+
+.arsenal__all {
+    display: flex;
+    align-items: center;
+
+    gap: 0.7rem;
+
+    flex-shrink: 0;
+
+    font-family: "Tinos";
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    color: var(--color-gold);
+
+    text-decoration: none;
+}
+
+
+.arsenal__arrow {
+    display: flex;
+
+    width: 0.6rem;
+    height: 1rem;
+
+    color: var(--color-gold);
+}
+
+
+/* ========================================
+   CATEGORIES CONTAINER
+======================================== */
+
+.categories {
+    width: 100%;
+}
+
+
+/* ========================================
+   WORDPRESS MENU WRAPPER
+======================================== */
+
+.front-page-menu {
+    width: 100%;
+}
+
+
+/* ========================================
+   WORDPRESS UL
+======================================== */
+
+.front-page-menu ul.menu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    width: 100%;
+
+    gap: 0.8rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   WORDPRESS LI
+   2 КАТЕГОРІЇ В РЯД
+======================================== */
+
+.front-page-menu ul.menu > li.menu-item {
+    display: block;
+
+    width: calc(50% - 0.4rem);
+    max-width: calc(50% - 0.4rem);
+
+    flex: 0 0 calc(50% - 0.4rem);
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    list-style: none;
+}
+
+
+/* ========================================
+   CATEGORY CARD
+======================================== */
+
+.front-page-menu ul.menu > li.menu-item > a.category-card {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+
+    padding: 0.8rem;
+
+    box-sizing: border-box;
+
+    background-color: var(--color-background-container);
+
+    border-radius: 1.4rem;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.front-page-menu ul.menu > li.menu-item > a.category-card:hover {
+    background-color: #2d2c12;
+
+    transform: translateY(-0.2rem);
+}
+
+
+/* ========================================
+   IMAGE
+======================================== */
+
+.front-page-menu .category-card__image-wrapper {
+    width: 100%;
+
+    aspect-ratio: 1.65 / 1;
+
+    overflow: hidden;
+
+    border-radius: 0.9rem;
+
+    background-color: var(--color-background-container);
+}
+
+
+.front-page-menu .category-card__image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.front-page-menu .category-card__content {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding-top: 0.8rem;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.front-page-menu .category-card__title {
+    margin: 0;
+
+    font-family: "Tinos", serif;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    color: var(--color-text-main);
+}
+
+
+/* ========================================
+   COUNT В НАЗВІ
+======================================== */
+
+.front-page-menu .category-card__count-bracket {
+    color: var(--color-gold);
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.front-page-menu .category-card__description {
+    margin: 0.45rem 0 0;
+
+    font-family: "Jet Brains", monospace;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.25;
+
+    color: var(--color-text-muted);
+}
+
+
+/* ========================================
+   BOTTOM
+======================================== */
+
+.front-page-menu .category-card__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin-top: auto;
+    padding-top: 1.2rem;
+}
+
+
+.front-page-menu .category-card__count {
+    font-family: "Tinos";
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+
+    color: var(--color-gold);
+}
+
+
+.front-page-menu .category-card__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-accent-orange);
+
+    transition: transform 0.2s ease;
+}
+
+
+.front-page-menu .category-card__arrow svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+
+.front-page-menu .category-card:hover .category-card__arrow {
+    transform: translateX(0.3rem);
+}
+
+
+/* ========================================
+   WORDPRESS RESET
+======================================== */
+
+.arsenal ul,
+.arsenal ol,
+.arsenal li {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 38.9rem) {
+
+    .arsenal .container {
+        width: 100%;
+        max-width: calc(100% - 3.2rem);
+    }
+
+
+    .front-page-menu ul.menu {
+        gap: 0.8rem;
+    }
+
+
+    .front-page-menu ul.menu > li.menu-item {
+        width: calc(50% - 0.4rem);
+        max-width: calc(50% - 0.4rem);
+
+        flex: 0 0 calc(50% - 0.4rem);
+    }
+}
+
+/* =========================================
+   ROOT
+   1rem = 10px
+========================================= */
+
+html {
+    font-size: 62.5%;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+    --color-accent-orange: #FE5F00;
+    --color-gold: #D4C95E;
+    --color-text-main: #E9E2CC;
+    --color-text-muted: #95917E;
+    --color-background-container: #1E1C0E;
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.hits {
+    width: 100%;
+    padding: 5.8rem 0 2rem;
+
+    background-color: #161307;
+
+    overflow: hidden;
+}
+
+
+.hits .container {
+    width: 35.8rem;
+    max-width: calc(100% - 3.2rem);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.hits__header {
+    margin-bottom: 3rem;
+}
+
+
+.hits__label {
+    display: block;
+
+    margin-bottom: 0.8rem;
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.16rem;
+
+    color: var(--color-accent-orange);
+
+    text-transform: uppercase;
+}
+
+
+.hits__title {
+    margin: 0;
+
+    font-family: "Tinos", serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.35;
+
+    color: var(--color-text-main);
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   SWIPER
+========================================= */
+
+.products-slider {
+    width: calc(100vw - 3.2rem);
+    overflow-x: hidden !important;
+}
+
+.products-slider .swiper-wrapper {
+    align-items: stretch;
+}
+
+.products-slider .swiper-slide {
+    height: fit-content;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   PRODUCT CARD
+========================================= */
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: fit-content;
+    min-height: 100%;
+    padding: 0.8rem;
+    background-color: var(--color-background-container);
+    border-radius: 1.2rem;
+    overflow: hidden;
+}
+
+.category-page {
+    width: 48% !important;
+}
+
+.category-page-ul {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* =========================================
+   PRODUCT LINK / MAIN CONTENT
+========================================= */
+
+.product-card > .woocommerce-loop-product__link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    min-width: 0;
+
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+.product-card > .woocommerce-loop-product__link img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0 0 0.8rem;
+
+    border-radius: 0.8rem;
+
+    object-fit: cover;
+}
+
+
+/* =========================================
+   SALE BADGE
+========================================= */
+
+.product-card .onsale {
+    position: absolute;
+    top: 1.6rem;
+    left: 1.6rem;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 2.6rem;
+
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0.5rem 1rem;
+
+    border-radius: 0.6rem;
+
+    background-color: var(--color-accent-orange);
+    color: var(--color-text-main);
+
+    font-family: "Tinos", serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.3rem;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   RATING
+========================================= */
+
+.product-card__review {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    margin-bottom: 0.4rem;
+
+    font-family: "Tinos", serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+
+    color: var(--color-gold);
+}
+
+.product-card__star {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.1rem;
+    height: 1.1rem;
+
+    color: var(--color-gold);
+}
+
+.product-card__star svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================
+   PRODUCT TITLE
+========================================= */
+
+.woocommerce-loop-product__title {
+    margin: 0;
+
+    font-family: "Plex Mono", monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.6rem;
+
+    color: var(--color-text-main);
+
+    text-transform: uppercase;
+}
+
+.category-page-ul .woocommerce-loop-product__title {
+    font-size: 1rem;
+}
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.product-card__description {
+    min-height: 4.8rem;
+
+    margin-top: 0.4rem;
+
+    font-family: "Jet Brains", monospace;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.8;
+
+    color: var(--color-text-muted);
+}
+.category-page-ul .product-card__description {
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.product-card .price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+
+    margin-top: 0.8rem;
+    margin-bottom: 0;
+
+    font-family: "Plex Mono", monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+
+    color: var(--color-accent-orange);
+}
+
+.category-page-ul .product-card .price {
+    font-size: 1.2rem;
+}
+
+
+/* Current price */
+
+.product-card .price .amount {
+    color: var(--color-accent-orange);
+}
+
+
+/* Old price */
+
+.product-card .price del {
+    order: 2;
+
+    font-family: "Jet Brains", monospace;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+}
+
+.product-card .price del .amount {
+    color: var(--color-text-muted);
+}
+
+
+/* Sale/current price */
+
+.product-card .price ins {
+    order: 1;
+
+    color: var(--color-accent-orange);
+    text-decoration: none;
+}
+
+.product-card .price ins .amount {
+    color: var(--color-accent-orange);
+}
+
+
+/* =========================================
+   CURRENCY
+========================================= */
+
+.product-card .woocommerce-Price-currencySymbol {
+    color: inherit;
+}
+
+
+/* =========================================
+   ADD TO CART / PRODUCT BUTTON
+========================================= */
+
+.product-card > .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 5rem;
+
+    margin-top: 0.4rem;
+    padding: 1rem 1.2rem;
+
+    box-sizing: border-box;
+
+    border: 0;
+    border-radius: 0.8rem;
+
+    background-color: #343225;
+
+    font-family: "Tinos", serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2rem;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: var(--color-gold);
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.product-card > .button:hover {
+    background-color: #403d2b;
+    color: var(--color-gold);
+}
+
+.product-card > .button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   EXTERNAL / GROUPED PRODUCTS
+========================================= */
+
+.product-card .product_type_external,
+.product-card .product_type_grouped {
+    min-height: 5rem;
+}
+
+
+/* =========================================
+   ACCESSIBILITY TEXT
+========================================= */
+
+.product-card .screen-reader-text {
+    position: absolute;
+}
+
+
+/* =========================================
+   REMOVE DEFAULT WOOCOMMERCE SPACING
+========================================= */
+
+.product-card::before,
+.product-card::after {
+    display: none;
+}
+
+.product-card > a:first-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   SWIPER NAVIGATION FIX
+========================================= */
+
+.swiper-slide {
+    margin-top: 0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 38.9rem) {
+
+    .hits {
+        padding-top: 4rem;
+    }
+
+    .hits__title {
+        font-size: 2.5rem;
+    }
+
+    .products-slider {
+        width: calc(100vw - 1.6rem);
+    }
+
+    .products-slider .swiper-slide {
+        width: 34rem;
+    }
+
+    .product-card__image-wrapper {
+        height: 21rem;
+    }
+}
+
+.workshop {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 5.8rem 0 1.6rem;
+
+    background-color: #161307;
+
+    overflow: hidden;
+}
+
+
+.workshop .container {
+    width: 35.8rem;
+    max-width: calc(100% - 3.2rem);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.workshop__header {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 2.4rem;
+}
+
+
+.workshop__label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-family: "Plex Mono", monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+    color: var(--color-accent-orange);
+}
+
+
+.workshop__title {
+    margin: 0;
+    font-family: "Tinos", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+}
+
+
+/* =========================================
+   VIDEO LINK
+========================================= */
+
+.workshop__video-link {
+    display: block;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   VIDEO WRAPPER
+========================================= */
+
+.workshop__video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 1.6rem;
+    background-color: var(--color-background-container);
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.workshop__video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.workshop__video-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(22, 19, 7, 0.05) 0%,
+            rgba(22, 19, 7, 0.08) 45%,
+            rgba(22, 19, 7, 0.45) 100%
+        );
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.workshop__video {
+    transition: transform 0.4s ease;
+}
+
+
+.workshop__video-link:hover .workshop__video {
+    transform: scale(1.02);
+}
+
+/* =========================================
+   SECTION
+========================================= */
+
+.reviews {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 5.6rem 0 1.4rem;
+
+    background-color: #161307;
+
+    overflow: hidden;
+}
+
+
+.reviews .container {
+    width: 35.8rem;
+    max-width: calc(100% - 3.2rem);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.reviews__header {
+    margin-bottom: 2.4rem;
+}
+
+
+.reviews__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: "Plex Mono", monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+    color: var(--color-accent-orange);
+}
+
+
+.reviews__title {
+    margin: 0;
+    font-family: "Tinos", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+}
+
+
+/* =========================================
+   SWIPER
+========================================= */
+
+.reviews-slider {
+    width: calc(100vw - 3.2rem);
+    overflow: visible;
+}
+
+
+.reviews-slider .swiper-wrapper {
+    align-items: stretch;
+}
+
+
+.reviews-slider .swiper-slide {
+    width: 31.4rem;
+    height: auto;
+}
+
+
+/* =========================================
+   REVIEW CARD
+========================================= */
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 2rem;
+    background-color: var(--color-background-container);
+    border-radius: 1.5rem;
+}
+
+
+/* =========================================
+   USER
+========================================= */
+
+.review-card__top {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.review-card__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #2D2A1B;
+    font-family: "Tinos", serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-gold);
+}
+
+
+.review-card__user {
+    min-width: 0;
+}
+
+
+.review-card__name {
+    margin: 0;
+    font-family: "Tinos", serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+}
+
+
+.review-card__location {
+    margin: 0.5rem 0 0;
+    font-family: "Jet Brains", monospace;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-gold);
+}
+
+
+/* =========================================
+   RATING
+========================================= */
+
+.review-card__rating {
+    margin-top: 0.8rem;
+}
+
+.review-card__rating svg {
+    color: var(--color-gold);
+    width: 1.3rem;
+    height: 1.2rem;
+}
+
+/* =========================================
+   REVIEW TEXT
+========================================= */
+
+.review-card__text {
+    margin-top: 0.4rem;
+    font-family: "Jet Brains", monospace;
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.8rem;
+    color: var(--color-text-muted);
+}
+
+
+/* =========================================
+   PRODUCTS
+========================================= */
+
+.review-card__products {
+    margin-top: 0.8rem;
+    font-family: "Tinos", serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: #827d6d;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.reviews-pagination, .promo-pagination {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.4rem;
+}
+
+
+.reviews-pagination .swiper-pagination-bullet {
+    width: 1rem;
+    height: 0.6rem;
+    margin: 0 !important;
+    border-radius: 1rem;
+    background-color: #454434;
+    opacity: 1;
+}
+
+
+.reviews-pagination .swiper-pagination-bullet-active{
+    width: 2.8rem;
+    background-color: var(--color-accent-orange);
+    border-radius: 1rem;
+}
+
+
+.footer {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--color-background-container);
+    overflow: hidden;
+    padding: 3.2rem 0 4.8rem;
+    margin-top: 3.2rem;
+}
+
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.footer__brand {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-bottom: 2.8rem;
+}
+
+.footer__brand-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__brand-name {
+    font-family: "Plex Mono", monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+.footer__brand-subtitle {
+    margin-top: 0.6rem;
+    font-family: "Plex Mono", monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.12rem;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   CONTACTS
+========================================= */
+
+.footer__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    margin-bottom: 2.8rem;
+}
+
+.footer__location {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+
+.footer__contact {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+
+.footer__contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.3rem;
+    min-width: 1.3rem;
+    height: 1.8rem;
+    color: var(--color-accent-orange);
+}
+
+.footer__contact-icon svg {
+    width: 1.2rem;
+    height: 1.5rem;
+    color: var(--color-accent-orange);
+}
+
+.footer__contact-text {
+    font-family: "Jet Brains", monospace;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.02rem;
+    color: var(--color-text-muted);
+}
+
+
+.footer__contact-text a {
+    font-family: "Jet Brains", monospace;
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+
+.footer__contact-text a:hover {
+    color: var(--color-text-main);
+}
+
+
+.footer__separator {
+    display: inline-block;
+    margin: 0 0.8rem;
+    color: var(--color-text-muted);
+}
+
+
+/* =========================================
+   SOCIALS
+========================================= */
+
+.footer__socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3.2rem;
+}
+
+
+.footer__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    box-sizing: border-box;
+    background-color: #252317;
+    border-radius: 0.5rem;
+    color: var(--color-text-main);
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.footer__social svg {
+    width: 1.6rem;
+    height: auto;
+}
+
+.footer__social:hover {
+    background-color: #302d1d;
+    color: var(--color-accent-orange);
+}
+
+
+/* =========================================
+   CATEGORIES
+========================================= */
+
+.footer__categories-title {
+    margin: 0 0 1rem;
+    font-family: "Tinos", serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-gold);
+    text-transform: uppercase;
+}
+
+
+.footer_menu {
+    margin-bottom: 3.8rem;
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+.footer_menu > .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 2.8rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================
+   MENU ITEMS — 2 COLUMNS
+========================================= */
+
+.footer_menu > .menu > .menu-item {
+    flex: 0 0 calc(50% - 1.4rem);
+
+    width: calc(50% - 1.4rem);
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   LINK
+========================================= */
+
+.footer_menu > .menu > .menu-item > a.category-card {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: "Jet Brains", monospace;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.35;
+
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+
+/* =========================================
+   CATEGORY TITLE
+========================================= */
+
+.footer_menu .category-card__title {
+    margin: 0;
+
+    font-family: "Jet Brains", monospace;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.35;
+
+    color: var(--color-text-muted);
+    text-transform: none;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.footer_menu > .menu > .menu-item > a.category-card:hover,
+.footer_menu .category-card__title:hover {
+    color: var(--color-text-main);
+}
+
+
+/* =========================================
+   HIDE EVERYTHING EXCEPT TITLE
+========================================= */
+
+.footer_menu .category-card__image-wrapper,
+.footer_menu .category-card__description,
+.footer_menu .category-card__bottom,
+.footer_menu .category-card__count-bracket,
+.footer_menu .category-card__count,
+.footer_menu .category-card__arrow {
+    display: none;
+}
+
+/* =========================================
+   PAYMENTS
+========================================= */
+
+.footer__payments {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+    text-transform: uppercase;
+}
+
+
+.footer__payment {
+    display: flex;
+    align-items: center;
+    min-height: 2.8rem;
+    box-sizing: border-box;
+    padding: 0.6rem 1rem;
+    background-color: #252317;
+    border-radius: 0.3rem;
+    font-family: "Plex Mono", monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.08rem;
+    color: var(--color-text-main);
+    text-decoration: none;
+}
+
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.footer__copyright {
+    max-width: 32rem;
+    font-family: "Jet Brains", monospace;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: 0.03rem;
+    color: var(--color-text-muted);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 38.9rem) {
+
+    .footer__container {
+        width: 35.8rem;
+        max-width: calc(100% - 3.2rem);
+
+        padding-top: 3.2rem;
+        padding-bottom: 4.8rem;
+    }
+
+
+    .footer__brand {
+        gap: 1.4rem;
+
+        margin-bottom: 2.6rem;
+    }
+
+
+    .footer__logo {
+        width: 8rem;
+        height: 4.6rem;
+    }
+
+
+    .footer__brand-name {
+        font-size: 1.8rem;
+    }
+
+
+    .footer__brand-subtitle {
+        font-size: 1rem;
+    }
+
+
+    .footer__contact-text,
+    .footer__contact-text a {
+        font-size: 1.4rem;
+    }
+
+
+    .footer__categories-list {
+        gap: 2rem;
+    }
+
+
+    .footer__category {
+        font-size: 1.3rem;
+    }
+}
+
+/* ==========================================
+   ХЛІБНІ КРИХТИ (BREADCRUMBS)
+   ========================================== */
+.woocommerce-breadcrumb {
+  font-family: 'Tinos';
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Посилання ("Головна", "Каталог товарів") */
+.woocommerce-breadcrumb a {
+  color: var(--color-text-main);
+  text-decoration: none;
+}
+
+.woocommerce-breadcrumb a:hover {
+  color: var(--color-gold);
+}
+
+/* Золоті роздільники / */
+.woocommerce-breadcrumb .breadcrumb-separator {
+  color: var(--color-gold);
+  margin: 0 0.4rem;
+}
+
+/* Останній текстовий елемент - червоний */
+.woocommerce-breadcrumb .breadcrumb-current {
+  color: var(--color-accent-orange); /* Або акцентний: var(--color-accent-orange, #FE5F00) */
+}
+
+/* ==========================================
+   ЗАГОЛОВОК СТОРІНКИ (HEADER TITLE)
+   ========================================== */
+.woocommerce-products-header {
+  margin: 1.6rem 0 0.8rem 0;
+  padding: 0;
+}
+
+.woocommerce-products-header__title.page-title {
+  font-family: 'Tinos';
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+}
+
+/* Помаранчевий префікс // перед заголовком */
+.woocommerce-products-header__title.page-title::before {
+  content: '// ';
+  color: var(--color-accent-orange);
+  margin-right: 1rem;
+  font-family: var(--font-title);
+}
+
+/* Опис товару / підзаголовок (якщо є) */
+.woocommerce-products-header p,
+.woocommerce-products-header .page-description {
+  font-family: 'Jet Brains';
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   ПАНЕЛЬ СОРТУВАННЯ ТА ФІЛЬТРІВ (TOOLBAR)
+   ========================================== */
+   .ordering-filtration {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.6rem;
+   }
+
+.woocommerce-ordering {
+    width: 70%;
+}
+
+.woocommerce-ordering select.orderby {
+  font-family: 'Tinos';
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #383526;
+  color: var(--color-text-main);
+  padding: 1.2rem 3.6rem 1.2rem 1.6rem;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23D4C95E' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  transition: background-color 0.2s ease;
+}
+
+.woocommerce-ordering select.orderby:hover,
+.woocommerce-ordering select.orderby:focus {
+  outline: none;
+}
+
+.woocommerce-ordering select.orderby option {
+  background-color: var(--color-background-container);
+  color: var(--color-text-main);
+  border: none;
+}
+
+/* ==========================================
+   КНОПКА ВІДКРИТТЯ ФІЛЬТРІВ
+   ========================================== */
+.widget_block {
+width: fit-content;
+}
+
+.wc-block-product-filters__open-overlay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background-color: var(--color-accent-orange);
+  color: #FFFFFF;
+  font-family: 'Tinos';
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  padding: 1.2rem 2rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.wc-block-product-filters__open-overlay:hover {
+  opacity: 0.9;
+}
+
+.wc-block-product-filters__open-overlay svg {
+  fill: currentColor;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+/* ==========================================
+   МОДАЛЬНЕ ВІКНО ФІЛЬТРІВ (OVERLAY)
+   ========================================== */
+.wc-block-product-filters__overlay {
+    height: auto;
+    width: 100%;
+}
+
+.wc-block-product-filters__overlay header,
+.wc-block-product-filters__overlay footer {
+    background-color: transparent;
+}
+
+.wc-block-product-filters__overlay-dialog {
+  background-color: #383526;
+  color: var(--color-text-main);
+  padding: 2.4rem;
+  border: none;
+  max-width: 42rem;
+  width: 100%;
+  height: fit-content;
+  height: fit-content !important;
+    max-height: 90vh !important;
+    top: auto !important;
+    margin-top: auto !important;
+    border-radius: 20px 20px 0 0 !important;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.wc-block-product-filters__overlay-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.6rem;
+}
+
+.wc-block-product-filters__close-overlay {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-label);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.wc-block-product-filters__close-overlay:hover {
+  color: var(--color-text-main);
+}
+
+/* Метки розділів (Section Labels) */
+.wp-block-heading,
+.wc-block-product-filters__overlay-content h2.wp-block-heading {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  margin-bottom: 2rem !important;
+}
+
+.wp-block-woocommerce-product-filter-price h3.wp-block-heading,
+.wp-block-woocommerce-product-filter-rating h3.wp-block-heading,
+.wp-block-woocommerce-product-filter-status h3.wp-block-heading {
+  font-family: var(--font-label);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  margin-bottom: 1.2rem !important;
+}
+
+/* ==========================================
+   ФІЛЬТР ЦІНИ (SLIDER)
+   ========================================== */
+.wc-block-product-filter-price-slider__range {
+  position: relative;
+  height: 0.4rem;
+  background-color: var(--color-block-bg);
+  margin: 2rem 0;
+}
+
+.wc-block-product-filter-price-slider__range .range-bar {
+  background-color: var(--color-accent-orange);
+  height: 100%;
+}
+
+.wc-block-product-filter-price-slider__range input[type="range"] {
+  accent-color: var(--color-accent-orange);
+}
+
+.wc-block-product-filter-price-slider__left input,
+.wc-block-product-filter-price-slider__right input {
+  background-color: var(--color-block-bg);
+  border: 1px solid rgba(233, 226, 204, 0.2);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  padding: 0.6rem 1rem;
+  width: 8rem;
+  text-align: center;
+}
+
+/* ==========================================
+   ЧЕКБОКСИ (РЕЙТИНГ, НАЯВНІСТЬ)
+   ========================================== */
+.wc-block-product-filter-checkbox-list fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wc-block-product-filter-checkbox-list__item {
+  margin-bottom: 1rem;
+}
+
+.wc-block-product-filter-checkbox-list__label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--color-text-main);
+}
+
+.wc-block-product-filter-checkbox-list__input {
+  appearance: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid var(--color-text-muted);
+  background-color: var(--color-block-bg);
+  cursor: pointer;
+  position: relative;
+}
+
+.wc-block-product-filter-checkbox-list__input:checked {
+  background-color: var(--color-accent-orange);
+  border-color: var(--color-accent-orange);
+}
+
+.wc-block-product-filter-checkbox-list__stars-svg {
+  color: var(--color-gold);
+}
+
+/* ==========================================
+   КНОПКА ЗАСТОСУВАННЯ ФІЛЬТРІВ
+   ========================================== */
+.wc-block-product-filters__apply {
+  background-color: var(--color-accent-orange);
+  color: #FFFFFF;
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  width: 100%;
+  padding: 1.4rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: opacity 0.2s ease;
+}
+
+.wc-block-product-filters__apply:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+   СТИЛІ ПАГІНАЦІЇ WOOCOMMERCE
+   ========================================== */
+
+/* Контейнер пагінації */
+.woocommerce-pagination {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.woocommerce-pagination ul.page-numbers {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Відстань між кнопками 10px */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.woocommerce-pagination ul.page-numbers li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Базовий стиль кнопки пагінації (за замовчуванням) */
+.woocommerce-pagination ul.page-numbers li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;  /* 48px */
+  height: 4rem; /* 48px */
+  background-color: var(--color-block-bg, #2B2816);
+
+  transition: background-color 0.2s ease, color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.woocommerce-pagination ul.page-numbers li a,
+.woocommerce-pagination ul.page-numbers li span {
+  color: var(--color-text-main, #E9E2CC);
+  font-family: 'Plex Mono', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Активна сторінка (помаранчевий блок) */
+.woocommerce-pagination ul li:has(span.current) {
+  background-color: var(--color-accent-orange, #FE5F00);
+  color: #FFFFFF;
+}
+
+/* Стрілки навігації (назад / вперед) */
+.woocommerce-pagination .page-numbers.prev,
+.woocommerce-pagination .page-numbers.next {
+  color: var(--color-gold, #D4C95E);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.2rem;
+}
+
+/* Ефекти наведення для неактивних посилань */
+
+.woocommerce-pagination a.page-numbers.prev:hover,
+.woocommerce-pagination a.page-numbers.next:hover {
+  color: #FFFFFF;
+}
+
+/* ==========================================
+   ІНЛАЙН ФІЛЬТРИ (БЕЗ ОВЕРЛЕЮ ТА КНОПКИ)
+   ========================================== */
+.filtration-result {
+    margin-bottom: 1.6rem;
+   }
+
+/* 1. Повністю приховуємо кнопку "Фільтр", шапку, футер та кнопку очищення */
+.filtration-result .wc-block-product-filters__open-overlay,
+.filtration-result .wc-block-product-filters__overlay-header,
+.filtration-result .wc-block-product-filters__overlay-footer,
+.filtration-result .wp-block-woocommerce-product-filter-clear-button {
+  display: none !important;
+}
+
+/* 2. Скидаємо модальне/висувне позиціонування оверлею */
+.filtration-result .wc-block-product-filters__overlay,
+.filtration-result .wc-block-product-filters__overlay-wrapper,
+.filtration-result .wc-block-product-filters__overlay-dialog {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  height: auto !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: visible !important;
+}
+
+/* 3. Головний контейнер фільтрів у рядок */
+.filtration-result .wc-block-product-filter-removable-chips__items {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem; /* Відстань між плашками 10px */
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* 4. Напис "ФІЛЬТРИ:" перед плашками */
+.filtration-result .wc-block-product-filter-removable-chips__items::before {
+  content: "ФІЛЬТРИ:";
+  font-family: 'Tinos';
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-right: 0.6rem;
+}
+
+/* 5. Стилізація плашок активних фільтрів (квадратні блоки) */
+.filtration-result .wc-block-product-filter-removable-chips__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #383526;
+  padding: 0.8rem 1.4rem;
+  margin: 0;
+  border: none;
+}
+
+/* 6. Текст всередині плашки */
+.filtration-result .wc-block-product-filter-removable-chips__label {
+  font-family: 'Plex Mono';
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-main);
+  line-height: 1;
+}
+
+/* 7. Кнопка та помаранчевий хрестик (×) видалення */
+.filtration-result .wc-block-product-filter-removable-chips__remove {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filtration-result .wc-block-product-filter-removable-chips__remove-icon,
+.filtration-result .wc-block-product-filter-removable-chips__remove svg {
+  width: 1.4rem !important;
+  height: 1.4rem !important;
+  fill: var(--color-accent-orange, #FE5F00) !important;
+  color: var(--color-accent-orange, #FE5F00) !important;
+  transition: transform 0.2s ease;
+}
+
+.filtration-result .wc-block-product-filter-removable-chips__remove:hover svg {
+  transform: scale(1.2);
+}
+
+/* 1. Відновлюємо прийом подій миші для контейнерів фільтрів */
+.filtration-result .wc-block-product-filters__overlay,
+.filtration-result .wc-block-product-filters__overlay-wrapper,
+.filtration-result .wc-block-product-filters__overlay-dialog,
+.filtration-result .wc-block-product-filters__overlay-content,
+.filtration-result .wp-block-woocommerce-product-filter-active,
+.filtration-result .wc-block-product-filter-removable-chips,
+.filtration-result .wc-block-product-filter-removable-chips__item {
+  pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 2. Забезпечуємо інтерактивність та вищий шар (z-index) для кнопки видалення */
+.filtration-result .wc-block-product-filter-removable-chips__remove {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 10 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 3. Пропускаємо клік крізь SVG безпосередньо на тег <button> */
+.filtration-result .wc-block-product-filter-removable-chips__remove svg,
+.filtration-result .wc-block-product-filter-removable-chips__remove-icon {
+  pointer-events: none !important;
+}
+
+/* ==========================================
+   СТИЛІ ГАЛЕРЕЇ ТОВАРУ (.chehluha-product-gallery)
+   ========================================== */
+
+
+/* Контейнер всієї галереї */
+.chehluha-product-gallery {
+  margin: 0.8rem 0 2rem 0; 
+  position: relative;
+  width: 100%;
+  max-width: 48rem;
+  background-color: var(--color-background-container);
+}
+
+/* ------------------------------------------
+   1. ГОЛОВНИЙ СЛАЙДЕР (MAIN SWIPER)
+   ------------------------------------------ */
+.chehluha-product-gallery .product-gallery-main-swiper {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-block-bg);
+  border: 1px solid rgba(233, 226, 204, 0.1);
+  margin-bottom: 1.2rem;
+  overflow: hidden;
+}
+
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-wrapper {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-slide {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.chehluha-product-gallery .product-gallery-main-swiper .img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Квадратне співвідношення сторін або підберіть під ваші фото */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chehluha-product-gallery .product-gallery-main-swiper .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ------------------------------------------
+   2. БЕЙДЖІ ТА БАНЕРИ СТАТУСУ (Вверхній шар)
+   ------------------------------------------ */
+
+/* Базові стилі для бейджів */
+.chehluha-product-gallery .stock-status,
+.chehluha-product-gallery .sale-status {
+  position: absolute;
+  top: 1.6rem;
+  z-index: 10;
+  font-family: 'Tinos';
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 1.2rem;
+  line-height: 1;
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.chehluha-product-gallery .sale-status {
+  font-family: 'Plex Mono';
+}
+
+/* Лівий бейдж: "В наявності" (Оливково-золотий) */
+.chehluha-product-gallery .stock-status.in-stock {
+  left: 1.6rem;
+  background-color: var(--color-gold);
+  color: #1E1C0E;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.chehluha-product-gallery .stock-status.in-stock::before {
+  content: '•';
+  font-size: 1.6rem;
+  line-height: 0;
+  color: #1E1C0E;
+}
+
+/* Правий бейдж: "Знижка" / Категорія (Яскраво-помаранчевий) */
+.chehluha-product-gallery .sale-status.sale {
+  right: 1.6rem;
+  background-color: var(--color-accent-orange);
+  color: #FFFFFF;
+}
+
+/* ------------------------------------------
+   3. СЛАЙДЕР МІНІАТЮР (THUMB SWIPER)
+   ------------------------------------------ */
+.chehluha-product-gallery .product-gallery-thumb-swiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.chehluha-product-gallery .product-gallery-thumb-swiper .swiper-wrapper {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.chehluha-product-gallery .product-gallery-thumb-swiper .swiper-slide {
+  cursor: pointer;
+  box-sizing: border-box;
+  opacity: 0.4;
+  border: 1px solid rgba(233, 226, 204, 0.1);
+  background-color: var(--color-block-bg);
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.chehluha-product-gallery .product-gallery-thumb-swiper .img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.chehluha-product-gallery .product-gallery-thumb-swiper .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ховер та активна мініатюра */
+.chehluha-product-gallery .product-gallery-thumb-swiper .swiper-slide:hover {
+  opacity: 0.8;
+}
+
+.chehluha-product-gallery .product-gallery-thumb-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+  border-color: var(--color-accent-orange);
+}
+/* ==========================================
+   КНОПКИ НАВІГАЦІЇ ТА ЛІЧИЛЬНИК ГАЛЕРЕЇ
+   ========================================== */
+
+/* Кнопки Prev / Next (квадратні темні блоки зі стрілками) */
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-button-prev,
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-button-next {
+  width: 4rem;  /* 40px */
+  height: 4rem; /* 40px */
+  background-color: rgba(30, 28, 14, 0.85);
+  border: 1px solid rgba(233, 226, 204, 0.15);
+  color: var(--color-gold, #D4C95E);
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 0;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Стрілки всередині кнопок */
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-button-prev::after,
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-button-next::after {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-button-prev {
+  left: 1.6rem;
+}
+
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-button-next {
+  right: 1.6rem;
+}
+
+/* Ховер ефект для кнопок */
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-button-prev:hover,
+.chehluha-product-gallery .product-gallery-main-swiper .swiper-button-next:hover {
+  background-color: var(--color-accent-orange, #FE5F00);
+  color: #FFFFFF;
+  border-color: var(--color-accent-orange, #FE5F00);
+}
+
+/* ------------------------------------------
+   ЛІЧИЛЬНИК ЗОБРАЖЕНЬ (CAM 1/4)
+   ------------------------------------------ */
+.chehluha-product-gallery .product-gallery-counter {
+  position: absolute;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  z-index: 10;
+  background-color: rgba(30, 28, 14, 0.9);
+  border: 1px solid rgba(233, 226, 204, 0.15);
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-label, 'IBM Plex Mono', monospace);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-gold, #D4C95E);
+  line-height: 1;
+}
+
+.chehluha-product-gallery .product-gallery-counter .cam-label {
+  margin-right: 0.4rem;
+  color: var(--color-text-muted, #95917E);
+}
+
+.chehluha-product-gallery .product-gallery-counter .current-slide {
+  color: var(--color-text-main, #E9E2CC);
+}
+
+/* ==========================================
+   СТИЛІ СУМАРНОГО БЛОКУ ТОВАРУ (.summary)
+   ========================================== */
+
+.summary.entry-summary {
+  color: var(--color-text-main);
+  max-width: 48rem;
+  font-family: var(--font-body);
+}
+
+/* 1. Заголовок товару */
+.summary.entry-summary .product_title.entry-title {
+  font-family: 'Tinos';
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/* 2. Короткий опис товару */
+.woocommerce-product-details__short-description {
+  font-family: 'Jet Brains';
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+}
+
+.woocommerce-product-details__short-description p {
+  margin: 0;
+}
+
+/* 3. Форма варіацій (Таблиця) */
+.variations_form .variations {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.variations_form .variations tr {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.4rem;
+}
+
+.variations_form .variations th.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 0 0 1rem 0;
+}
+
+.variations_form .variations th.label label {
+  font-family: var(--font-label);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Іконка перед заголовком атрибута */
+.variations_form .variations tr:nth-child(1) th.label label::before {
+  content: '';
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.8rem;
+  vertical-align: middle;
+  
+  /* Використовуємо background-image із закодованим SVG */
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.66667 13.3333C5.75556 13.3333 4.89444 13.1583 4.08333 12.8083C3.27222 12.4583 2.56389 11.9806 1.95833 11.375C1.35278 10.7694 0.875 10.0611 0.525 9.25C0.175 8.43889 0 7.57778 0 6.66667C0 5.74444 0.180556 4.87778 0.541667 4.06667C0.902778 3.25556 1.39167 2.55 2.00833 1.95C2.625 1.35 3.34444 0.875 4.16667 0.525C4.98889 0.175 5.86667 0 6.8 0C7.68889 0 8.52778 0.152778 9.31667 0.458333C10.1056 0.763889 10.7972 1.18611 11.3917 1.725C11.9861 2.26389 12.4583 2.90278 12.8083 3.64167C13.1583 4.38056 13.3333 5.17778 13.3333 6.03333C13.3333 7.31111 12.9444 8.29167 12.1667 8.975C11.3889 9.65833 10.4444 10 9.33333 10H8.1C8 10 7.93056 10.0278 7.89167 10.0833C7.85278 10.1389 7.83333 10.2 7.83333 10.2667C7.83333 10.4 7.91667 10.5917 8.08333 10.8417C8.25 11.0917 8.33333 11.3778 8.33333 11.7C8.33333 12.2556 8.18056 12.6667 7.875 12.9333C7.56944 13.2 7.16667 13.3333 6.66667 13.3333V13.3333M6.66667 6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667V6.66667M3 7.33333C3.28889 7.33333 3.52778 7.23889 3.71667 7.05C3.90556 6.86111 4 6.62222 4 6.33333C4 6.04444 3.90556 5.80556 3.71667 5.61667C3.52778 5.42778 3.28889 5.33333 3 5.33333C2.71111 5.33333 2.47222 5.42778 2.28333 5.61667C2.09444 5.80556 2 6.04444 2 6.33333C2 6.62222 2.09444 6.86111 2.28333 7.05C2.47222 7.23889 2.71111 7.33333 3 7.33333V7.33333M5 4.66667C5.28889 4.66667 5.52778 4.57222 5.71667 4.38333C5.90556 4.19444 6 3.95556 6 3.66667C6 3.37778 5.90556 3.13889 5.71667 2.95C5.52778 2.76111 5.28889 2.66667 5 2.66667C4.71111 2.66667 4.47222 2.76111 4.28333 2.95C4.09444 3.13889 4 3.37778 4 3.66667C4 3.95556 4.09444 4.19444 4.28333 4.38333C4.47222 4.57222 4.71111 4.66667 5 4.66667V4.66667M8.33333 4.66667C8.62222 4.66667 8.86111 4.57222 9.05 4.38333C9.23889 4.19444 9.33333 3.95556 9.33333 3.66667C9.33333 3.37778 9.23889 3.13889 9.05 2.95C8.86111 2.76111 8.62222 2.66667 8.33333 2.66667C8.04444 2.66667 7.80556 2.76111 7.61667 2.95C7.42778 3.13889 7.33333 3.37778 7.33333 3.66667C7.33333 3.95556 7.42778 4.19444 7.61667 4.38333C7.80556 4.57222 8.04444 4.66667 8.33333 4.66667V4.66667M10.3333 7.33333C10.6222 7.33333 10.8611 7.23889 11.05 7.05C11.2389 6.86111 11.3333 6.62222 11.3333 6.33333C11.3333 6.04444 11.2389 5.80556 11.05 5.61667C10.8611 5.42778 10.6222 5.33333 10.3333 5.33333C10.0444 5.33333 9.80556 5.42778 9.61667 5.61667C9.42778 5.80556 9.33333 6.04444 9.33333 6.33333C9.33333 6.62222 9.42778 6.86111 9.61667 7.05C9.80556 7.23889 10.0444 7.33333 10.3333 7.33333V7.33333M6.66667 12C6.76667 12 6.84722 11.9722 6.90833 11.9167C6.96944 11.8611 7 11.7889 7 11.7C7 11.5444 6.91667 11.3611 6.75 11.15C6.58333 10.9389 6.5 10.6222 6.5 10.2C6.5 9.73333 6.66111 9.36111 6.98333 9.08333C7.30556 8.80556 7.7 8.66667 8.16667 8.66667H9.33333C10.0667 8.66667 10.6944 8.45278 11.2167 8.025C11.7389 7.59722 12 6.93333 12 6.03333C12 4.68889 11.4861 3.56944 10.4583 2.675C9.43056 1.78056 8.21111 1.33333 6.8 1.33333C5.28889 1.33333 4 1.85 2.93333 2.88333C1.86667 3.91667 1.33333 5.17778 1.33333 6.66667C1.33333 8.14444 1.85278 9.40278 2.89167 10.4417C3.93056 11.4806 5.18889 12 6.66667 12V12' fill='%23FE5F00'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.variations_form .variations tr:nth-child(2) th.label label::before {
+content: '';
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-right: 0.8rem;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='14' viewBox='0 0 11 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.33333 13.3333C3.78889 12.9444 2.51389 12.0583 1.50833 10.675C0.502778 9.29167 0 7.75556 0 6.06667V2L5.33333 0L10.6667 2V6.06667C10.6667 7.75556 10.1639 9.29167 9.15833 10.675C8.15278 12.0583 6.87778 12.9444 5.33333 13.3333V13.3333M5.33333 11.9333C6.41111 11.6 7.31111 10.9417 8.03333 9.95833C8.75556 8.975 9.17778 7.87778 9.3 6.66667H5.33333V1.41667L1.33333 2.91667V6.06667C1.33333 6.18889 1.33333 6.28889 1.33333 6.36667C1.33333 6.44444 1.34444 6.54444 1.36667 6.66667H5.33333V11.9333V11.9333' fill='%23FE5F00'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.woo-selected-variation-item-name {
+  display: none;
+  }
+
+/* Кнопка "Очистити" */
+.reset_variations {
+  font-family: var(--font-label);
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+  align-self: flex-end;
+  transition: color 0.2s ease;
+}
+
+.reset_variations::before {
+  content: '↻';
+  color: var(--color-accent-orange);
+  font-size: 1.2rem;
+}
+
+.reset_variations:hover {
+  color: var(--color-accent-orange);
+}
+
+.variations_form .variations td.value {
+  padding: 0;
+  position: relative;
+}
+
+/* --- ЗАГАЛЬНИЙ ГРИД ДЛЯ ПЛАШОК ВАРІАЦІЙ --- */
+ul.variable-items-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important; /* По 2 елементи в рядок для моделей */
+  gap: 1rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+/* Для кольорів сітка з 4 колонок */
+ul.variable-items-wrapper.image-variable-items-wrapper {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+
+/* --- БАЗОВА ПЛАШКА ВАРІАЦІЇ --- */
+ul.variable-items-wrapper li.variable-item {
+  background-color: var(--color-block-bg) !important;
+  border: 1px solid rgba(233, 226, 204, 0.1) !important;
+  border-radius: 0 !important;
+  padding: 1.2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 0 !important;
+  min-height: 5.4rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+ul.variable-items-wrapper li.variable-item:hover {
+  border-color: rgba(212, 201, 94, 0.4) !important;
+}
+
+/* --- ВАРІАЦІЇ КОЛЬОРУ (Картинки/Свочі) --- */
+ul.variable-items-wrapper.image-variable-items-wrapper li.variable-item {
+  flex-direction: column !important;
+  min-height: 7rem;
+}
+
+ul.variable-items-wrapper.image-variable-items-wrapper li.variable-item img {
+  width: 2.8rem !important;
+  height: 2.8rem !important;
+  object-fit: cover;
+  border-radius: 0 !important;
+  margin-bottom: 0.6rem;
+}
+
+ul.variable-items-wrapper.image-variable-items-wrapper li.variable-item::after {
+  content: attr(data-title);
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* --- ВАРІАЦІЇ МОДЕЛЕЙ (Текстові кнопки) --- */
+ul.variable-items-wrapper.button-variable-items-wrapper li.variable-item {
+  justify-content: space-between !important;
+  padding: 1.2rem 1.6rem !important;
+}
+
+ul.variable-items-wrapper.button-variable-items-wrapper .variable-item-span-button {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  letter-spacing: 0.03em;
+}
+
+/* --- АКТИВНИЙ СТАН (SELECTED) --- */
+ul.variable-items-wrapper li.variable-item.selected {
+  background-color: var(--color-gold) !important;
+  border-color: var(--color-gold) !important;
+}
+
+ul.variable-items-wrapper.button-variable-items-wrapper li.variable-item.selected .variable-item-span-button {
+  color: #1E1C0E !important; /* Темний текст на золотому тлі */
+}
+
+ul.variable-items-wrapper.image-variable-items-wrapper li.variable-item.selected {
+  background-color: #38341D !important;
+  border-color: var(--color-gold) !important;
+}
+
+ul.variable-items-wrapper.image-variable-items-wrapper li.variable-item.selected::after {
+  color: var(--color-gold);
+}
+
+/* --- НЕАКТИВНИЙ / НЕДОСТУПНИЙ СТАН (DISABLED) --- */
+ul.variable-items-wrapper li.variable-item.disabled {
+  opacity: 0.35 !important;
+  cursor: not-allowed !important;
+  position: relative;
+  filter: grayscale(1);
+}
+
+/* 4. Блок ціни (.single_variation_wrap) */
+.single_variation_wrap {
+  background-color: var(--color-block-bg);
+  padding: 2rem;
+  border: 1px solid rgba(233, 226, 204, 0.08);
+}
+
+.woocommerce-variation-price {
+  margin-bottom: 2rem;
+}
+
+.woocommerce-variation-price::before {
+  content: "ФІКСОВАНА ВАРТІСТЬ";
+  display: block;
+  font-family: var(--font-label);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.woocommerce-variation-price .price {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+}
+
+/* Поточна ціна */
+.woocommerce-variation-price .amount {
+  font-family: var(--font-body);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+/* Закреслена ціна (якщо є знижка) */
+.woocommerce-variation-price del .amount {
+  font-size: 1.8rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+/* 5. Поле кількості та кнопка "Додати в кошик" */
+.woocommerce-variation-add-to-cart {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+/* Поле кількості */
+.woocommerce-variation-add-to-cart .quantity {
+  width: fit-content;
+  flex-shrink: 0;
+}
+
+.woocommerce-variation-add-to-cart .quantity input.qty {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--color-background-container);
+  border: 1px solid rgba(233, 226, 204, 0.15);
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 0;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.woocommerce-variation-add-to-cart .quantity input.qty::-webkit-outer-spin-button,
+.woocommerce-variation-add-to-cart .quantity input.qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Кнопка "Додати в кошик" */
+.single_add_to_cart_button.button {
+  flex: 1;
+  height: 5rem;
+  background-color: var(--color-accent-orange) !important;
+  color: #FFFFFF !important;
+  font-family: 'Tinos' !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  border: none !important;
+  border-radius: 0 !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  transition: opacity 0.2s ease;
+}
+
+.single_add_to_cart_button.button::before {
+  content: '';
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.7rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='17' viewBox='0 0 14 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.45833 13.5L9.77083 8.33333H6.4375L7.04167 3.60417L3.1875 9.16667H6.08333L5.45833 13.5V13.5M3.33333 16.6667L4.16667 10.8333H0L7.5 0H9.16667L8.33333 6.66667H13.3333L5 16.6667H3.33333V16.6667M6.47917 8.54167V8.54167V8.54167V8.54167V8.54167V8.54167V8.54167V8.54167' fill='white'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.single_add_to_cart_button.button:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+   СТИЛІ ВКТАДОК WOOCOMMERCE (.woocommerce-tabs)
+   ========================================== */
+
+
+:root {
+  --color-accent-orange: #FE5F00;
+  --color-gold: #D4C95E;
+  --color-text-main: #E9E2CC;
+  --color-text-muted: #95917E;
+  --color-background-container: #1E1C0E;
+  --color-block-bg: #2B2816;
+
+  --font-title: 'Tinos', serif;
+  --font-label: 'IBM Plex Mono', monospace;
+  --font-body: 'JetBrains Mono', monospace;
+}
+
+.woocommerce-tabs {
+  background-color: transparent;
+  margin-top: 4rem;
+  font-family: var(--font-body);
+}
+
+/* ------------------------------------------
+   1. ПАНЕЛЬ ВКТАДОК (TABS HEADER)
+   ------------------------------------------ */
+.woocommerce-tabs ul.tabs {
+  display: flex;
+  gap: 0.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.woocommerce-tabs ul.tabs li {
+  background-color: #17150B;
+  border: 1px solid rgba(233, 226, 204, 0.08);
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.woocommerce-tabs ul.tabs li a {
+  display: block;
+  padding: 1.2rem 2rem;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Активна вкладка */
+.woocommerce-tabs ul.tabs li.active {
+  background-color: var(--color-block-bg);
+  border-color: rgba(212, 201, 94, 0.2);
+  position: relative;
+  z-index: 999;
+}
+
+.woocommerce-tabs ul.tabs li.active a {
+  color: var(--color-gold);
+}
+
+.woocommerce-tabs ul.tabs li:hover:not(.active) a {
+  color: var(--color-text-main);
+}
+
+/* ------------------------------------------
+   2. КОНТЕЙНЕР ПАНЕЛІ (TAB PANEL)
+   ------------------------------------------ */
+.woocommerce-tabs .panel {
+  background-color: var(--color-block-bg);
+  border: 1px solid rgba(212, 201, 94, 0.2);
+  padding: 2.4rem;
+  margin-top: -1px;
+  color: var(--color-text-main);
+}
+
+/* Заголовки всередині вкладок */
+.woocommerce-tabs .panel h2,
+#reply-title {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  letter-spacing: 0.05em;
+  margin: 0 0 1.2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.woocommerce-Reviews-title {
+  display: none !important;
+}
+
+/* Іконка перед заголовком в додатковій інформації */
+.woocommerce-Tabs-panel--additional_information h2::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.125 11.175L11.175 10.125C11.25 10.05 11.2875 9.9625 11.2875 9.8625C11.2875 9.7625 11.25 9.675 11.175 9.6L8.625 7.03125C8.675 6.89375 8.7125 6.75625 8.7375 6.61875C8.7625 6.48125 8.775 6.325 8.775 6.15C8.775 5.4375 8.52188 4.82813 8.01562 4.32188C7.50937 3.81563 6.9 3.5625 6.1875 3.5625C5.975 3.5625 5.7625 3.59062 5.55 3.64687C5.3375 3.70312 5.13125 3.78125 4.93125 3.88125L6.69375 5.64375L5.64375 6.69375L3.88125 4.93125C3.78125 5.13125 3.70312 5.3375 3.64687 5.55C3.59062 5.7625 3.5625 5.975 3.5625 6.1875C3.5625 6.9 3.81563 7.50937 4.32188 8.01562C4.82813 8.52188 5.4375 8.775 6.15 8.775C6.3125 8.775 6.46563 8.7625 6.60938 8.7375C6.75312 8.7125 6.89375 8.675 7.03125 8.625L9.6 11.175C9.675 11.25 9.7625 11.2875 9.8625 11.2875C9.9625 11.2875 10.05 11.25 10.125 11.175V11.175M7.5 15C6.4625 15 5.4875 14.8031 4.575 14.4094C3.6625 14.0156 2.86875 13.4812 2.19375 12.8062C1.51875 12.1312 0.984375 11.3375 0.590625 10.425C0.196875 9.5125 0 8.5375 0 7.5C0 6.4625 0.196875 5.4875 0.590625 4.575C0.984375 3.6625 1.51875 2.86875 2.19375 2.19375C2.86875 1.51875 3.6625 0.984375 4.575 0.590625C5.4875 0.196875 6.4625 0 7.5 0C8.5375 0 9.5125 0.196875 10.425 0.590625C11.3375 0.984375 12.1312 1.51875 12.8062 2.19375C13.4812 2.86875 14.0156 3.6625 14.4094 4.575C14.8031 5.4875 15 6.4625 15 7.5C15 8.5375 14.8031 9.5125 14.4094 10.425C14.0156 11.3375 13.4812 12.1312 12.8062 12.8062C12.1312 13.4812 11.3375 14.0156 10.425 14.4094C9.5125 14.8031 8.5375 15 7.5 15V15M7.5 13.5C9.175 13.5 10.5938 12.9188 11.7563 11.7563C12.9188 10.5938 13.5 9.175 13.5 7.5C13.5 5.825 12.9188 4.40625 11.7563 3.24375C10.5938 2.08125 9.175 1.5 7.5 1.5C5.825 1.5 4.40625 2.08125 3.24375 3.24375C2.08125 4.40625 1.5 5.825 1.5 7.5C1.5 9.175 2.08125 10.5938 3.24375 11.7563C4.40625 12.9188 5.825 13.5 7.5 13.5V13.5M7.5 7.5V7.5V7.5V7.5V7.5V7.5V7.5V7.5V7.5V7.5' fill='%23FE5F00'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+/* Іконка перед "Додати відгук" */
+#reply-title::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 9H5.2875L9.0375 5.25C9.15 5.1375 9.23437 5.00937 9.29062 4.86562C9.34687 4.72187 9.375 4.58125 9.375 4.44375C9.375 4.30625 9.34375 4.17188 9.28125 4.04063C9.21875 3.90938 9.1375 3.7875 9.0375 3.675L8.3625 2.9625C8.25 2.85 8.125 2.76562 7.9875 2.70937C7.85 2.65312 7.70625 2.625 7.55625 2.625C7.41875 2.625 7.27813 2.65312 7.13438 2.70937C6.99063 2.76562 6.8625 2.85 6.75 2.9625L3 6.7125V9V9M8.25 4.44375V4.44375L7.55625 3.75V3.75L8.25 4.44375V4.44375M4.125 7.875V7.1625L6.01875 5.26875L6.39375 5.60625L6.73125 5.98125L4.8375 7.875H4.125V7.875M6.39375 5.60625L6.73125 5.98125V5.98125L6.01875 5.26875V5.26875L6.39375 5.60625V5.60625M6.88125 9H12V7.5H8.38125L6.88125 9V9M0 15V1.5C0 1.0875 0.146875 0.734375 0.440625 0.440625C0.734375 0.146875 1.0875 0 1.5 0H13.5C13.9125 0 14.2656 0.146875 14.5594 0.440625C14.8531 0.734375 15 1.0875 15 1.5V10.5C15 10.9125 14.8531 11.2656 14.5594 11.5594C14.2656 11.8531 13.9125 12 13.5 12H3L0 15V15M2.3625 10.5H13.5V10.5V10.5V10.5V1.5V1.5V1.5H1.5V1.5V1.5V11.3438L2.3625 10.5V10.5M1.5 10.5V10.5V1.5V1.5V1.5V1.5V1.5V1.5V10.5V10.5V10.5V10.5V10.5' fill='%23FE5F00'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+/* ------------------------------------------
+   3. ТАБЛИЦЯ ХАРАКТЕРИСТИК (SHOP ATTRIBUTES)
+   ------------------------------------------ */
+.shop_attributes {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shop_attributes tr {
+  border-bottom: 1px dashed rgba(149, 145, 126, 0.2);
+}
+
+.shop_attributes tr:last-child {
+  border-bottom: none;
+}
+
+.shop_attributes th.woocommerce-product-attributes-item__label {
+  font-family: var(--font-label);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  padding: 0.8rem 0;
+  width: 40%;
+  text-align: left;
+}
+
+.shop_attributes td.woocommerce-product-attributes-item__value {
+  font-family: 'Jet Brains';
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--color-text-main);
+  padding: 0.8rem 0;
+}
+
+.shop_attributes td.woocommerce-product-attributes-item__value p {
+  margin: 0;
+}
+
+/* ------------------------------------------
+   4. СПИСОК ВІДГУКІВ (REVIEWS)
+   ------------------------------------------ */
+.commentlist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem 0;
+}
+
+.commentlist li.review {
+  background-color: var(--color-background-container);
+  border: 1px solid rgba(233, 226, 204, 0.08);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.comment_container {
+  display: flex;
+  gap: 1.6rem;
+}
+
+/* Аватар користувача */
+.comment_container img.avatar {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 0;
+  background-color: #38341D;
+  border: 1px solid rgba(233, 226, 204, 0.1);
+}
+
+.comment-text {
+  flex: 1;
+}
+
+/* Плашка автора та дата */
+.comment-text .meta {
+  font-family: var(--font-label);
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.woocommerce-review__author {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  letter-spacing: 0.05em;
+}
+
+/* Бейдж "VERIFIED OPERATOR" для адміна/покупця */
+.woocommerce-review__author::after {
+  content: 'VERIFIED OPERATOR';
+  background-color: var(--color-accent-orange);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.6rem;
+  margin-left: 0.6rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.woocommerce-review__published-date {
+  color: var(--color-text-muted);
+}
+
+/* Зірочки оцінки у відгуках */
+.star-rating,
+p.stars a {
+  color: var(--color-accent-orange);
+  font-family: var(--font-body);
+}
+
+.comment-text .star-rating {
+  margin-bottom: 0.6rem;
+}
+
+.comment-text .description {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--color-text-main);
+  line-height: 1.5;
+  border-top: 1px dashed rgba(149, 145, 126, 0.2);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.comment-text .description p {
+  margin: 0;
+}
+
+/* ------------------------------------------
+   5. ФОРМА ДОДАВАННЯ ВІДГУКУ (#respond)
+   ------------------------------------------ */
+#review_form_wrapper {
+  margin-top: 2rem;
+}
+
+.comment-form-rating {
+  margin-bottom: 1.6rem;
+}
+
+.comment-form-rating label {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.comment-form-rating .stars svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+/* Поле вводу тексту відгуку */
+.comment-form-comment label {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.comment-form-comment textarea {
+  width: 100%;
+  background-color: var(--color-background-container);
+  border: 1px solid rgba(233, 226, 204, 0.15);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  padding: 1.2rem;
+  box-sizing: border-box;
+  outline: none;
+  resize: vertical;
+  min-height: 10rem;
+}
+
+.comment-form-comment textarea:focus {
+  border-color: var(--color-gold);
+}
+
+/* Кнопка "Відправити" */
+.form-submit input#submit {
+  background-color: var(--color-accent-orange);
+  color: #FFFFFF;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+  padding: 1.2rem 2.8rem;
+  margin-top: 2.4rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  border-radius: 0;
+}
+
+.form-submit input#submit:hover {
+  opacity: 0.9;
+}
+
+/* Прибираємо стандартні стрілки number-input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Обгортка кількості (мінус, інпут, плюс) */
+.variations_button .qty-wrap {
+  display: flex;
+  align-items: center;
+  width: 13rem;
+  height: 5rem;
+  background-color: var(--color-background-container, #1E1C0E);
+  border: 1px solid rgba(233, 226, 204, 0.15);
+  box-sizing: border-box;
+}
+
+/* Сам числовий інпут всередині обгортки */
+.variations_button .qty-wrap input.qty {
+  flex: 1;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--color-gold, #D4C95E) !important;
+  font-family: var(--font-body, 'JetBrains Mono', monospace) !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Кнопки мінус та плюс */
+.variations_button .qty-wrap button.qty-minus,
+.variations_button .qty-wrap button.qty-plus {
+  width: 3.8rem;
+  height: 100%;
+  border: none;
+  color: var(--color-text-main, #E9E2CC);
+  font-family: var(--font-body, 'JetBrains Mono', monospace);
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  padding: 0;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+.qty-wrap button.qty-minus:hover,
+.qty-wrap button.qty-plus:hover {
+  background-color: var(--color-accent-orange, #FE5F00);
+  color: #FFFFFF;
+}
+
+.comment-form-rating .stars a .rating-star__text {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.up-sells > h2 {
+  font-family: 'Tinos';
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--color-text-main);
+  margin: 3.6rem 0 1.6rem 0;
+  text-transform: uppercase;
+}
+
+.up-sells > h2::before {
+  display: block;
+  content: 'Тактичний комплект';
+  font-family: 'Tinos';
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-accent-orange);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.woocommerce-cart-form .cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0.4rem 0 1.6rem 0;
+}
+
+.woocommerce-cart-form .cart-header h1 {
+      margin: 0;
+    font-family: "Tinos", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+}
+
+.woocommerce-cart-form .cart-header span {
+  display: block;
+  padding: 0.4rem 0.8rem;
+  box-sizing: border-box;
+  background-color: var(--color-accent-orange);
+  font-family: "Plex Mono";
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text-main);
+  border-radius: 0.4rem;
+}
+
+.woocommerce-cart-form__contents thead {
+  display: none;
+}
+
+/* ==========================================
+   СТИЛІ КАРТКИ ТОВАРУ В КОШИКУ (Figma Design)
+   ========================================== */
+/* ==========================================================
+   WooCommerce Empty Cart: Tactical Dark Theme
+   ========================================================== */
+
+/* Головний контейнер WooCommerce на сторінці кошика */
+
+/* Обгортка повідомлення про порожній кошик */
+.woocommerce .wc-empty-cart-message {
+    width: 100%;
+    margin: 0;
+}
+
+/* Блок сповіщення (Info) */
+.woocommerce .cart-empty.woocommerce-info {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 !important;
+    padding: 16px 20px !important;
+    background-color: #1A170D !important;
+    border: 1px solid #332F22 !important;
+    border-left: 4px solid #988F2A !important; /* Фірмовий золотистий маркер */
+    border-radius: 4px !important;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4) !important;
+    font-family: 'Nimbus Mono PS', monospace !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+    font-weight: 400 !important;
+    color: #E5E5DC !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Параграф з кнопкою повернення */
+.woocommerce p.return-to-shop {
+    margin: 0;
+    width: 100%;
+}
+
+/* Кнопка "Повернутись в магазин" */
+.woocommerce p.return-to-shop a.button.wc-backward {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #FE5F00;
+    border: 1px solid #FE5F00;
+    border-radius: 4px;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.woocommerce p.return-to-shop a.button.wc-backward:hover {
+    background: #E05400;
+    border-color: #E05400;
+    box-shadow: 0px 0px 12px rgba(254, 95, 0, 0.4);
+    color: var(--color-text-main);
+}
+
+.woocommerce p.return-to-shop a.button.wc-backward:active {
+    transform: translateY(1px);
+}
+
+
+
+/* Рядок таблиці WooCommerce перетворюється на окрему картку */
+.woocommerce-cart-form__cart-item.cart_item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 1.6rem;
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 35.8rem;
+  background: #1E1C0E;
+  border-radius: 0.8rem;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin-bottom: 1.6rem;
+  list-style: none;
+}
+
+/* Скидання стандартних стилів табличних комірок WooCommerce */
+.woocommerce-cart-form__cart-item.cart_item td {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+/* 1. Кнопка видалення (У верхньому правому кутку) */
+.woocommerce-cart-form__cart-item.cart_item td.product-remove {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  z-index: 10;
+}
+
+.woocommerce-cart-form__cart-item.cart_item td.product-remove a.remove {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  background: #222012;
+  border-radius: 0.4rem;
+  color: #FFB4AB;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.woocommerce-cart-form__cart-item.cart_item td.product-remove a.remove:hover {
+  background: #383526;
+}
+
+/* 2. Мініатюра товару */
+.woocommerce-cart-form__cart-item.cart_item td.product-thumbnail {
+  width: 9.6rem;
+  height: 9.6rem;
+  background: #383526;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.woocommerce-cart-form__cart-item.cart_item td.product-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 3. Назва товару та варіації */
+.woocommerce-cart-form__cart-item.cart_item td.product-name {
+  flex: 1;
+  min-width: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.woocommerce-cart-form__cart-item.cart_item td.product-name > a {
+  font-family: 'Tinos', 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.032rem;
+  text-transform: uppercase;
+  color: #E9E2CC;
+  text-decoration: none;
+}
+
+/* Список варіацій */
+.woocommerce-cart-form__cart-item.cart_item td.product-name dl.variation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 1.1rem;
+  color: #95917E;
+}
+
+.woocommerce-cart-form__cart-item.cart_item td.product-name dl.variation dt,
+.woocommerce-cart-form__cart-item.cart_item td.product-name dl.variation dd {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.woocommerce-cart-form__cart-item.cart_item td.product-name dl.variation dt {
+  font-family: 'Tinos', serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.024rem;
+  color: #95917E;
+}
+
+.woocommerce-cart-form__cart-item.cart_item td.product-name dl.variation dd p {
+  margin: 0;
+  background: #383526;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  color: #E9E2CC;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Приховуємо окрему колонку ціни, оскільки є фінальний підсумок */
+.woocommerce-cart-form__cart-item.cart_item td.product-price {
+  display: none;
+}
+
+/* 4. Нижня панель дій (Bottom Actions Bar): Лічильник кількості */
+.woocommerce-cart-form__cart-item.cart_item td.product-quantity {
+  flex-basis: 100%;
+  background: rgba(56, 53, 38, 0.4);
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.8rem 0.8rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 5.1rem;
+}
+
+/* Стилізація лічильника кількості (Quantity Stepper) */
+.woocommerce-cart-form__cart-item.cart_item .quantity {
+  display: flex;
+  align-items: center;
+}
+
+.woocommerce-cart-form__cart-item.cart_item .qty-wrap {
+  display: flex;
+  align-items: center;
+  width: 10.4rem;
+  height: 3.2rem;
+  background: #100E04;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+.woocommerce-cart-form__cart-item.cart_item .qty-wrap button {
+  width: 3.2rem;
+  height: 3.2rem;
+  background: transparent;
+  border: none;
+  color: #E9E2CC;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  padding: 0;
+}
+
+.woocommerce-cart-form__cart-item.cart_item .qty-wrap button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.woocommerce-cart-form__cart-item.cart_item .qty-wrap input.qty {
+  flex: 1;
+  width: 4rem;
+  height: 3.2rem;
+  background: transparent;
+  border: none;
+  color: #E9E2CC;
+  font-family: 'Space Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+/* 5. Проміжний підсумок (Item Subtotal) у нижній панелі праворуч */
+.woocommerce-cart-form__cart-item.cart_item td.product-subtotal {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.4rem;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.woocommerce-cart-form__cart-item.cart_item td.product-subtotal::before {
+  content: "ПІДСУМОК";
+  font-family: 'Tinos', serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: #95917E;
+}
+
+.woocommerce-cart-form__cart-item.cart_item td.product-subtotal .woocommerce-Price-amount {
+  font-family: 'Space Mono', monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.032rem;
+  color: #FE5F00;
+}
+
+/* ==========================================
+   СТИЛІ ПІДСУМКІВ КОШИКУ (.cart_totals - Figma Design)
+   ========================================== */
+
+
+/* Головний контейнер підсумків кошика */
+.cart_totals {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.6rem;
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 35.8rem;
+  background: #1E1C0E;
+  border-radius: 0.8rem;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  font-family: 'JetBrains Mono', monospace;
+  color: #E9E2CC;
+  margin-top: 2.4rem;
+}
+
+/* Декоративний заголовок-специфікація зверху */
+.cart_totals::before {
+  content: "// СПЕЦИФІКАЦІЯ РОЗРАХУНКУ //";
+  font-family: 'Liberation Serif', serif;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.11rem;
+  text-transform: uppercase;
+  color: #D4C95E;
+}
+
+/* Заголовок "Підсумки кошика" */
+.cart_totals > h2 {
+  font-family: 'Liberation Serif', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  letter-spacing: -0.05rem;
+  text-transform: uppercase;
+  color: #E9E2CC;
+  margin: -0.4rem 0 0 0;
+}
+
+/* Таблиця розрахунків */
+.cart_totals table.shop_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.8rem;
+  margin: 0;
+  border: none;
+}
+
+.cart_totals table.shop_table tr {
+  display: flex;
+  flex-direction: column;
+  background: rgba(16, 14, 4, 0.6);
+  border-radius: 0.4rem;
+  padding: 1.2rem;
+  box-sizing: border-box;
+  border: none;
+}
+
+.cart_totals table.shop_table th,
+.cart_totals table.shop_table td {
+  border: none;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+/* Приховуємо кнопку "Оновити кошик", залишаючи її доступною для JS */
+.woocommerce-cart-form button[name="update_cart"] {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 1. Рядок проміжного підсувку (Subtotal Row) */
+.cart_totals tr.cart-subtotal {
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 1.2rem !important;
+  height: 4.8rem;
+}
+
+.cart_totals tr.cart-subtotal th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  color: #CBC7B2;
+  font-weight: 400;
+}
+
+.cart_totals tr.cart-subtotal td {
+  width: auto;
+  text-align: right;
+}
+
+.cart_totals tr.cart-subtotal .woocommerce-Price-amount {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.084rem;
+  color: #E9E2CC;
+}
+
+/* 2. Сеція відправлення / доставки (Shipping Section Box) */
+.cart_totals tr.woocommerce-shipping-totals.shipping {
+  gap: 0.8rem;
+}
+
+.cart_totals tr.woocommerce-shipping-totals.shipping > th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  color: #CBC7B2;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+
+.cart_totals ul.woocommerce-shipping-methods {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.6rem 0;
+}
+
+.cart_totals ul.woocommerce-shipping-methods li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  color: #CBC7B2;
+}
+
+.cart_totals .woocommerce-shipping-destination {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  color: #E9E2CC;
+  margin: 0 0 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cart_totals .woocommerce-shipping-destination strong {
+  color: #F1E677;
+  font-weight: 500;
+}
+
+/* Кнопка зміни адреси (Shipping Calculator Toggle) */
+.cart_totals a.shipping-calculator-button {
+  font-family: 'Liberation Serif', serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #D4C95E;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cart_totals a.shipping-calculator-button:hover {
+  text-decoration: underline;
+}
+
+/* Форма калькулятора доставки (розгорнута) */
+.cart_totals .shipping-calculator-form {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart_totals .shipping-calculator-form p.form-row {
+  margin: 0;
+}
+
+.cart_totals .shipping-calculator-form label {
+  font-size: 1.1rem;
+  color: #95917E;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.cart_totals .shipping-calculator-form select,
+.cart_totals .shipping-calculator-form input.input-text {
+  width: 100%;
+  background: #100E04;
+  border: 1px solid rgba(233, 226, 204, 0.15);
+  color: #E9E2CC;
+  padding: 0.8rem 1.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  border-radius: 0.4rem;
+  outline: none;
+}
+
+.cart_totals .shipping-calculator-form button.button {
+  background: #383526;
+  color: #E9E2CC;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cart_totals .shipping-calculator-form button.button:hover {
+  background: var(--color-accent-orange, #FE5F00);
+  color: #FFFFFF;
+}
+
+/* 3. Рядок загальної суми (Order Total Row) */
+.cart_totals tr.order-total {
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center;
+  background: #100E04 !important;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.2rem !important;
+  height: 6.3rem;
+}
+
+.cart_totals tr.order-total th {
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: -0.04rem;
+  text-transform: uppercase;
+  color: #E9E2CC;
+  width: auto;
+}
+
+/* Додаємо підпис "з ПДВ / без" під словом Загалом через псевдоелемент */
+.cart_totals tr.order-total th::after {
+  content: "Фінальна вартість";
+  display: block;
+  font-family: 'Liberation Serif', serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: normal;
+  color: #95917E;
+  text-transform: none;
+}
+
+.cart_totals tr.order-total td {
+  width: auto;
+  text-align: right;
+}
+
+.cart_totals tr.order-total .woocommerce-Price-amount {
+  font-family: 'Space Mono', monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3.8rem;
+  letter-spacing: -0.075rem;
+  color: #FE5F00;
+}
+
+/* 4. Кнопка "Перейти до оформлення" (Proceed to Checkout Button) */
+.cart_totals .wc-proceed-to-checkout {
+  width: 100%;
+  margin-top: 0.4rem;
+}
+
+.cart_totals .wc-proceed-to-checkout a.checkout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem;
+  width: 100%;
+  background: #FE5F00;
+  border-radius: 0.8rem;
+  font-family: 'Liberation Serif', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.07rem;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.2s ease;
+}
+
+.cart_totals .wc-proceed-to-checkout a.checkout-button:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+   СТИЛІ ПЛАТІЖНИХ ТА ДОСТАВНИХ ДАНИХ (Figma Design)
+   ========================================== */
+
+
+/* --- 1. ГОЛОВНИЙ БЛОК ПЛАТІЖНИХ ДАНИХ (Billing Details) --- */
+.woocommerce-billing-fields {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.6rem;
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 35.8rem;
+  background: #222012;
+  border-radius: 0.8rem;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+.chehluha-checkout .container > h1,
+.chehluha-my-account .container > h1 {
+  font-family: 'Tinos';
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.03em;
+}
+
+
+/* Заголовок блоку "Платіжні дані" */
+.woocommerce-billing-fields > h3 {
+  font-family: 'Liberation Serif', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.032rem;
+  text-transform: uppercase;
+  color: #D4C95E;
+  margin: 0;
+  width: 100%;
+}
+
+/* Обгортка полів форми */
+.woocommerce-billing-fields__field-wrapper,
+.woocommerce-shipping-fields__field-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  width: 100%;
+  margin: 0;
+}
+
+/* Налаштування форм-роу (полів) */
+.woocommerce-billing-fields .form-row,
+.woocommerce-shipping-fields .form-row {
+  width: 100%;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Рядок для імені та прізвища в один рядок (як у Figma по 159px) */
+.woocommerce-billing-fields .form-row-first,
+.woocommerce-billing-fields .form-row-last,
+.woocommerce-shipping-fields .form-row-first,
+.woocommerce-shipping-fields .form-row-last {
+  width: calc(50% - 0.8rem) !important;
+  float: none !important;
+}
+
+/* Лейбли (мітки полів) */
+.woocommerce-billing-fields label,
+.woocommerce-shipping-fields label {
+  font-family: 'Liberation Serif', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: #CBC7B2;
+}
+
+.woocommerce-billing-fields label .required,
+.woocommerce-shipping-fields label .required {
+  color: #FE5F00;
+  text-decoration: none;
+}
+
+/* Інпути та селекти в платіжних даних */
+.woocommerce-billing-fields .input-text,
+.woocommerce-billing-fields select,
+.woocommerce-billing-fields .select2-selection--single {
+  background: #1E1C0E !important;
+  border: none !important;
+  border-radius: 0.4rem !important;
+  height: 4rem !important;
+  padding: 1rem !important;
+  box-sizing: border-box;
+  color: #E9E2CC !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 1.4rem !important;
+  line-height: 2rem !important;
+  letter-spacing: 0.014rem !important;
+  width: 100% !important;
+}
+
+/* Виправлення висоти та центрування для Select2 */
+.woocommerce-billing-fields .select2-container .select2-selection--single {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.woocommerce-billing-fields .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #E9E2CC !important;
+  padding: 0 !important;
+  line-height: normal !important;
+}
+
+.woocommerce-billing-fields .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 100% !important;
+  right: 1rem !important;
+  top: 0 !important;
+}
+
+.woocommerce-billing-fields .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #D4C95E transparent transparent transparent !important;
+}
+
+
+/* --- 2. ПЕРЕМИКАЧ "ДОСТАВИТИ НА ІНШУ АДРЕСУ?" --- */
+.woocommerce-shipping-fields {
+  width: 100%;
+  max-width: 35.8rem;
+  margin-top: 1.6rem;
+}
+
+.woocommerce-shipping-fields h3#ship-to-different-address {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.woocommerce-shipping-fields h3#ship-to-different-address label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+/* Чекбокс */
+.woocommerce-shipping-fields input[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+  background: #FE5F00;
+  border-radius: 0.25rem;
+  accent-color: #FE5F00;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Текст біля чекбокса */
+.woocommerce-shipping-fields h3#ship-to-different-address span {
+  font-family: 'Liberation Serif', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.03rem;
+  text-transform: uppercase;
+  color: var(--color-accent-orange);
+}
+
+
+/* --- 3. БЛОК ІНШОЇ АДРЕСИ ДОСТАВКИ (Shipping Address Wrapper) --- */
+.woocommerce-shipping-fields .shipping_address {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.8rem;
+  gap: 0.8rem;
+  width: 100%;
+  background: #1E1C0E;
+  border-radius: 0.8rem;
+  box-sizing: border-box;
+  margin-top: 0.8rem;
+}
+
+/* Інпути всередині блоку іншої адреси (у Figma вони мають висоту 36px та фон #222012) */
+.woocommerce-shipping-fields .shipping_address .input-text,
+.woocommerce-shipping-fields .shipping_address select,
+.woocommerce-shipping-fields .shipping_address .select2-selection--single {
+  background: #222012 !important;
+  height: 3.6rem !important;
+  padding: 0.8rem !important;
+  font-size: 1.4rem !important;
+  color: #E9E2CC !important;
+}
+
+/* Лейбли всередині блоку іншої адреси */
+.woocommerce-shipping-fields .shipping_address label {
+  font-size: 1rem;
+  color: #CBC7B2;
+}
+
+/* ==========================================
+   СТИЛІ СПОСОБІВ ДОСТАВКИ ТА ПОЇЛ (Figma Design)
+   ========================================== */
+
+
+/* Головний контейнер секції відправлення */
+.woocommerce-additional-fields {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.6rem;
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 35.8rem;
+  background: #222012;
+  border-radius: 0.8rem;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin-top: 1.6rem;
+  font-family: 'Tinos';
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.woocommerce-additional-fields > ul, 
+.woocommerce-additional-fields > div {
+  font-family: 'JetBrains Mono', monospace;
+  color: #E9E2CC;
+  text-transform: none;
+}
+
+
+
+/* Заголовок секції (Відправлення) */
+.woocommerce-additional-fields > h3,
+.woocommerce-additional-fields > h2,
+.woocommerce-additional-fields > *:not(ul):not(div) {
+  font-family: 'Liberation Serif', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.032rem;
+  text-transform: uppercase;
+  color: #D4C95E;
+  margin: 0;
+  width: 100%;
+}
+
+
+/* --- 1. СПИСОК РАДІОКНОПОК СПОСОБІВ ДОСТАВКИ --- */
+.woocommerce-additional-fields ul.woocommerce-shipping-methods {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.woocommerce-additional-fields ul.woocommerce-shipping-methods li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  background: #1E1C0E;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  width: 100%;
+  transition: background 0.2s ease;
+}
+
+/* Активний / вибраний радіо-елемент (відповідає стилю #2D2A1B з Figma) */
+.woocommerce-additional-fields ul.woocommerce-shipping-methods li:has(input[type="radio"]:checked) {
+  background: #2D2A1B;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.woocommerce-additional-fields ul.woocommerce-shipping-methods label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  font-family: 'Liberation Serif', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.096rem;
+  color: #E9E2CC;
+  margin: 0;
+}
+
+.woocommerce-additional-fields ul.woocommerce-shipping-methods li:has(input[type="radio"]:checked) label {
+  color: #D4C95E;
+}
+
+/* Кастомний дизайн радіокнопки */
+.woocommerce-additional-fields ul.woocommerce-shipping-methods input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: #FFFFFF;
+  border: 1px solid #767676;
+  border-radius: 5rem;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.8rem;
+  flex-shrink: 0;
+}
+
+.woocommerce-additional-fields ul.woocommerce-shipping-methods input[type="radio"]:checked {
+  border-color: #FE5F00;
+  background: #FFFFFF;
+  padding: 0.32rem;
+}
+
+.woocommerce-additional-fields ul.woocommerce-shipping-methods input[type="radio"]:checked::after {
+  content: '';
+  width: 0.96rem;
+  height: 0.96rem;
+  background: #FE5F00;
+  border-radius: 5rem;
+  display: block;
+}
+
+/* Ціна у списках доставки */
+.woocommerce-additional-fields ul.woocommerce-shipping-methods .amount {
+  font-family: 'Space Mono', monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.096rem;
+  color: #FE5F00;
+}
+
+
+/* --- 2. ІНТЕРАКТИВНІ ПОЛЯ ДОСТАВКИ (Нова Пошта тощо) --- */
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  gap: 0.8rem;
+  width: 100%;
+  background: #100E04;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  margin-top: 0.8rem;
+}
+
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields p.form-row {
+  margin-bottom: 0.8rem !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100% !important;
+}
+
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields label {
+  font-family: 'Liberation Serif', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: #CBC7B2;
+}
+
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields label .required {
+  color: #FE5F00;
+  text-decoration: none;
+}
+
+/* Інпути та Select2 поля всередині блоку доставки */
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields .select2-container--default .select2-selection--single,
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields select,
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields input.input-text {
+  background: #1E1C0E !important;
+  border: none !important;
+  border-radius: 0.4rem !important;
+  height: 4rem !important;
+  padding: 1rem !important;
+  box-sizing: border-box;
+  color: #E9E2CC !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 1.4rem !important;
+  line-height: 2rem !important;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+}
+
+/* Налаштування стрілочки та тексту Select2 */
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #E9E2CC !important;
+  padding: 0 !important;
+  line-height: normal !important;
+}
+
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 100% !important;
+  right: 1rem !important;
+  top: 0 !important;
+}
+
+.woocommerce-additional-fields .mrkv_ua_shipping_checkout_fields .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #D4C95E transparent transparent transparent !important;
+}
+
+
+/* ==========================================
+   СТИЛІ ОГЛЯДУ ТА ОПЛАТИ ЗАМОВЛЕННЯ (Figma Design)
+   ========================================== */
+
+
+/* --- 1. ГОЛОВНИЙ БЛОК ОГЛЯДУ ЗАМОВЛЕННЯ --- */
+.woocommerce-checkout-review-order {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 1.6rem !important;
+    gap: 1.6rem !important;
+    width: 100% !important;
+    max-width: 35.8rem !important;
+    background: #222012 !important;
+    border-radius: 0.8rem !important;
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
+    box-sizing: border-box !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    color: #E9E2CC !important;
+    margin-top: 1.6rem !important;
+  }
+
+/* Декоративний заголовок-специфікація зверху */
+.woocommerce-checkout-review-order::before {
+  content: "// ОГЛЯД ЗАМОВЛЕННЯ //";
+  font-family: 'Liberation Serif', serif;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.11rem;
+  text-transform: uppercase;
+  color: #D4C95E;
+}
+
+.woocommerce-checkout-review-order table.shop_table {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Заголовок таблиці (Товар / Підсумок) */
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table thead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: none;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table thead th {
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.032rem;
+  text-transform: uppercase;
+  color: #D4C95E;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table thead th.product-total {
+  display: none;
+}
+
+
+/* --- 2. СПИСОК ТОВАРІВ У ЗАМОВЛЕННІ (Items List) --- */
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+  border: none;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tbody tr.cart_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #1E1C0E;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tbody tr.cart_item td {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tbody tr.cart_item td.product-name {
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.096rem;
+  color: #E9E2CC;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 70%;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tbody tr.cart_item td.product-name .product-quantity {
+  font-family: 'Space Mono', monospace;
+  color: #E9E2CC;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tbody tr.cart_item td.product-name dl.variation {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  color: #CBC7B2;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tbody tr.cart_item td.product-name dl.variation dt,
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tbody tr.cart_item td.product-name dl.variation dd {
+  margin: 0;
+  display: inline;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tbody tr.cart_item td.product-total .woocommerce-Price-amount {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.096rem;
+  color: #E9E2CC;
+}
+
+
+/* --- 3. ФІНАНСОВИЙ ПІДСУМОК (Financial Recap / tfoot) --- */
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tfoot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  background: #1E1C0E;
+  padding: 1.2rem;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  border: none;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tfoot tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tfoot tr th,
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tfoot tr td {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  color: #CBC7B2;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tfoot tr td .woocommerce-Price-amount {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.096rem;
+  color: #E9E2CC;
+}
+
+/* Рядок загальної суми (Order Total Box) */
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tfoot tr.order-total {
+  background: #222012;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  margin-top: 0.4rem;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tfoot tr.order-total th {
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: #CBC7B2;
+  display: flex;
+  flex-direction: column;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tfoot tr.order-total th::after {
+  content: "ФІНАЛЬНА ВАРТІСТЬ";
+  color: #D4C95E;
+}
+
+.woocommerce-checkout-review-order table.woocommerce-checkout-review-order-table tfoot tr.order-total td .woocommerce-Price-amount {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  color: #FE5F00;
+}
+
+
+/* --- 4. МЕТОДИ ОПЛАТИ (Payment Methods) --- */
+.woocommerce-checkout-payment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  margin-top: 0.8rem;
+}
+
+.woocommerce-checkout-payment::before {
+  content: "// МЕТОД ОПЛАТИ";
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: #CBC7B2;
+}
+
+.woocommerce-checkout-payment ul.payment_methods {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.woocommerce-checkout-payment ul.payment_methods li.wc_payment_method {
+  background: #1E1C0E;
+  padding: 1.2rem;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.woocommerce-checkout-payment ul.payment_methods li.wc_payment_method > label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.096rem;
+  color: #D4C95E;
+  cursor: pointer;
+  margin: 0;
+}
+
+.woocommerce-checkout-payment ul.payment_methods li.wc_payment_method input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: #FFFFFF;
+  border: 1px solid #FE5F00;
+  border-radius: 5rem;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.woocommerce-checkout-payment ul.payment_methods li.wc_payment_method input[type="radio"]:checked::after {
+  content: '';
+  width: 0.8rem;
+  height: 0.8rem;
+  background: #FE5F00;
+  border-radius: 5rem;
+}
+
+/* Опис методів оплати (Payment Box) */
+.woocommerce-checkout-payment .payment_box {
+  background: #222012;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: #CBC7B2;
+  margin: 0;
+}
+
+
+/* --- 5. ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ ТА КНОПКА ПІДТВЕРДЖЕННЯ --- */
+.woocommerce-checkout-payment .form-row.place-order {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  margin: 0;
+}
+
+.woocommerce-checkout-payment .woocommerce-terms-and-conditions-wrapper {
+  background: #100E04;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: #CBC7B2;
+  box-sizing: border-box;
+}
+
+.woocommerce-checkout-payment .woocommerce-terms-and-conditions-wrapper a {
+  color: #D4C95E;
+  text-decoration: underline;
+}
+
+/* Кнопка "Підтвердити замовлення" */
+.woocommerce-checkout-payment button#place_order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem;
+  width: 100%;
+  background: #FE5F00;
+  border: none;
+  border-radius: 0.8rem;
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.084rem;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.2s ease;
+  box-sizing: border-box;
+}
+
+.woocommerce-checkout-payment button#place_order:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+   Tactical Order Notes (WooCommerce Checkout)
+   ========================================== */
+
+   .woocommerce-additional-fields__field-wrapper {
+    width: 100%;
+   }
+/* 1. Головний блок (обгортка поля) */
+.woocommerce-additional-fields__field-wrapper #order_comments_field.form-row.notes {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 8px 0 0 !important;
+    gap: 4px !important;
+    width: 100% !important;
+    max-width: 326px !important;
+    box-sizing: border-box !important;
+    margin-bottom: 0 !important;
+}
+
+/* 2. Лейбл (заголовок поля) */
+.woocommerce-additional-fields__field-wrapper #order_comments_field label {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 326px !important;
+    height: 24px !important;
+    
+    font-family: 'Liberation Serif', serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 10px !important;
+    line-height: 12px !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    color: #CBC7B2 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Стилізація дужки "(необов'язково)" всередині лейбла */
+.woocommerce-additional-fields__field-wrapper #order_comments_field label .optional {
+    font-weight: 400 !important;
+    text-transform: none !important;
+    color: #9CA3AF !important;
+}
+
+/* 3. Контейнер текстового поля */
+.woocommerce-additional-fields__field-wrapper #order_comments_field .woocommerce-input-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    max-width: 326px !important;
+    box-sizing: border-box !important;
+}
+
+/* 4. Саме поле введення (Textarea) */
+.woocommerce-additional-fields__field-wrapper #order_comments_field textarea.input-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 10px 10px 30px !important;
+    width: 100% !important;
+    max-width: 326px !important;
+    height: 80px !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
+    overflow-y: auto !important;
+    
+    background: #1E1C0E !important;
+    border: 1px solid rgba(233, 226, 204, 0.1) !important; /* за потреби можна змінити рамку або прибрати через border: none */
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+    
+    font-family: 'JetBrains Mono', monospace !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    letter-spacing: 0.14px !important;
+    color: #E9E2CC !important;
+}
+
+/* 5. Placeholder (підказка всередині textarea) */
+.woocommerce-additional-fields__field-wrapper #order_comments_field textarea.input-text::placeholder {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    letter-spacing: 0.14px !important;
+    color: #9CA3AF !important;
+}
+
+/* ==========================================
+   Tactical WooCommerce Login Form
+   ========================================== */
+
+/* 1. Головний контейнер форми (WooCommerce Main Login Form Container) */
+.woocommerce form.woocommerce-form-login {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 16px !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 358px !important;
+    background: #1E1C0E !important;
+    box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+    position: relative !important;
+}
+
+/* 2. Заголовок "Увійти" (Heading 2) */
+.woocommerce h2 {
+    font-family: 'Liberation Serif', serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    letter-spacing: 0.32px !important;
+    text-transform: uppercase !important;
+    color: #E9E2CC !important;
+    margin: 0 0 8px 0 !important;
+}
+
+/* 3. Рядки полів (Form Fields Wrapper) */
+.woocommerce form.woocommerce-form-login .form-row-wide {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    margin: 0 0 12px 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+}
+
+/* 4. Лейбли полів (Labels) */
+.woocommerce form.woocommerce-form-login label {
+    font-family: 'Liberation Serif', serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    letter-spacing: 0.96px !important;
+    color: #E9E2CC !important;
+    margin-bottom: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Зірочка обов'язкового поля (*) */
+.woocommerce form.woocommerce-form-login label .required {
+    font-family: 'Space Mono', monospace !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    color: #FE5F00 !important;
+    margin-left: 4px !important;
+    text-decoration: none !important;
+}
+
+/* 5. Поля введення (Inputs) */
+.woocommerce form.woocommerce-form-login input.input-text {
+    display: flex !important;
+    width: 100% !important;
+    height: 44px !important;
+    padding: 13px 12px 13px 16px !important;
+    background: #100E04 !important;
+    border: 1px solid rgba(233, 226, 204, 0.1) !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+    
+    font-family: 'JetBrains Mono', monospace !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    letter-spacing: 0.14px !important;
+    color: #E9E2CC !important;
+}
+
+.woocommerce form.woocommerce-form-login input.input-text::placeholder {
+    color: #9CA3AF !important;
+}
+
+/* Обгортка для пароля з кнопкою "Показати" */
+.woocommerce form.woocommerce-form-login .password-input {
+    width: 100% !important;
+    position: relative !important;
+    display: block !important;
+}
+
+.woocommerce form.woocommerce-form-login .show-password-input {
+    position: absolute !important;
+    right: 4px !important;
+    top: 4px !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+.woocommerce form.woocommerce-form-login .show-password-input::after {
+    color: #95917E !important;
+}
+
+/* 6. Блок "Запам'ятати мене" + Кнопка Увійти (Action Row) */
+.woocommerce form.woocommerce-form-login .form-row:not(.form-row-wide) {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Чекбокс "Запам'ятати мене" */
+.woocommerce-form-login__rememberme {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+}
+
+.woocommerce-form-login__rememberme input[type="checkbox"] {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    background: #100E04 !important;
+    border: 1px solid rgba(233, 226, 204, 0.2) !important;
+    border-radius: 4px !important;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05) !important;
+    outline: none !important;
+    cursor: pointer !important;
+    position: relative !important;
+    margin: 0 !important;
+}
+
+.woocommerce-form-login__rememberme input[type="checkbox"]:checked {
+    background-color: #FE5F00 !important;
+    border-color: #FE5F00 !important;
+}
+
+.woocommerce-form-login__rememberme input[type="checkbox"]:checked::after {
+    content: '✓' !important;
+    position: absolute !important;
+    color: #FFFFFF !important;
+    font-size: 10px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.woocommerce-form-login__rememberme span {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    letter-spacing: 0.24px !important;
+    color: #CBC7B2 !important;
+}
+
+/* Посилання "Втратили свій пароль?" */
+.woocommerce-LostPassword.lost_password {
+    margin: 4px 0 0 0 !important;
+}
+
+.woocommerce-LostPassword.lost_password a {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    letter-spacing: 0.24px !important;
+    text-decoration: underline !important;
+    color: #D4C95E !important;
+}
+
+/* 7. Головна кнопка відправки (Submit Button) */
+.woocommerce form.woocommerce-form-login .woocommerce-form-login__submit {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 14px 16px !important;
+    width: 100% !important;
+    height: 46px !important;
+    background: #FE5F00 !important;
+    border: none !important;
+    border-radius: 4px !important;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+    
+    font-family: 'Liberation Serif', serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    letter-spacing: 0.7px !important;
+    text-transform: uppercase !important;
+    color: #FFFFFF !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease !important;
+}
+
+.woocommerce form.woocommerce-form-login .woocommerce-form-login__submit:hover {
+    background: #e05300 !important;
+}
+
+/* 8. Соціальний вхід через Google (Nextend Social Login) */
+.woocommerce form.woocommerce-form-login .nsl-container {
+    width: 100% !important;
+    margin-top: 8px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid #383526 !important; /* Tactical Divider */
+}
+
+.woocommerce form.woocommerce-form-login .nsl-button-google {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+    gap: 12px !important;
+    width: 100% !important;
+    height: 44px !important;
+    background: #100E04 !important;
+    border-radius: 4px !important;
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+}
+
+.woocommerce form.woocommerce-form-login .nsl-button-label-container {
+    font-family: 'Space Mono', monospace !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    letter-spacing: 0.3px !important;
+    color: #E9E2CC !important;
+}
+
+/* ==========================================
+   СТИЛІ НАВІГАЦІЇ ОБЛІКОВОГО ЗАПИСУ (Figma Design)
+   ========================================== */
+
+/* Головний контейнер навігації */
+.woocommerce-MyAccount-navigation {
+  width: 100%;
+  max-width: 35.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.woocommerce-MyAccount-navigation ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+}
+
+.woocommerce-MyAccount-navigation ul li {
+  width: 100%;
+  margin: 0;
+}
+
+/* Базові стилі для посилань у меню */
+.woocommerce-MyAccount-navigation ul li a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 1.6rem;
+  width: 100%;
+  height: 4.4rem;
+  border-radius: 0.6rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Liberation Serif', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+
+
+/* --- 2. СТАНДАРТНІ ПУНКТИ МЕНЮ (Замовлення, Адреси, Особисті дані) --- */
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard a,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders a,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address a,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account a {
+  background: var(--color-background-container);
+  color: var(--color-gold);
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard a:hover,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders a:hover,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address a:hover,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account a:hover {
+  background: var(--color-gold);
+  color: var(--color-background-container);
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard a::before,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders a::before,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address a::before,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account a::before,
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  vertical-align: middle;
+  margin-right: 0.45rem;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard a::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.125 11.175L11.175 10.125C11.25 10.05 11.2875 9.9625 11.2875 9.8625C11.2875 9.7625 11.25 9.675 11.175 9.6L8.625 7.03125C8.675 6.89375 8.7125 6.75625 8.7375 6.61875C8.7625 6.48125 8.775 6.325 8.775 6.15C8.775 5.4375 8.52188 4.82812 8.01562 4.32188C7.50938 3.81563 6.9 3.5625 6.1875 3.5625C5.975 3.5625 5.7625 3.59062 5.55 3.64687C5.3375 3.70312 5.13125 3.78125 4.93125 3.88125L6.69375 5.64375L5.64375 6.69375L3.88125 4.93125C3.78125 5.13125 3.70312 5.3375 3.64687 5.55C3.59062 5.7625 3.5625 5.975 3.5625 6.1875C3.5625 6.9 3.81563 7.50938 4.32188 8.01562C4.82812 8.52188 5.4375 8.775 6.15 8.775C6.3125 8.775 6.46562 8.7625 6.60938 8.7375C6.75313 8.7125 6.89375 8.675 7.03125 8.625L9.6 11.175C9.675 11.25 9.7625 11.2875 9.8625 11.2875C9.9625 11.2875 10.05 11.25 10.125 11.175V11.175M7.5 15C6.4625 15 5.4875 14.8031 4.575 14.4094C3.6625 14.0156 2.86875 13.4812 2.19375 12.8062C1.51875 12.1312 0.984375 11.3375 0.590625 10.425C0.196875 9.5125 0 8.5375 0 7.5C0 6.4625 0.196875 5.4875 0.590625 4.575C0.984375 3.6625 1.51875 2.86875 2.19375 2.19375C2.86875 1.51875 3.6625 0.984375 4.575 0.590625C5.4875 0.196875 6.4625 0 7.5 0C8.5375 0 9.5125 0.196875 10.425 0.590625C11.3375 0.984375 12.1312 1.51875 12.8062 2.19375C13.4812 2.86875 14.0156 3.6625 14.4094 4.575C14.8031 5.4875 15 6.4625 15 7.5C15 8.5375 14.8031 9.5125 14.4094 10.425C14.0156 11.3375 13.4812 12.1312 12.8062 12.8062C12.1312 13.4812 11.3375 14.0156 10.425 14.4094C9.5125 14.8031 8.5375 15 7.5 15V15M7.5 13.5C9.175 13.5 10.5938 12.9188 11.7563 11.7563C12.9188 10.5938 13.5 9.175 13.5 7.5C13.5 5.825 12.9188 4.40625 11.7563 3.24375C10.5938 2.08125 9.175 1.5 7.5 1.5C5.825 1.5 4.40625 2.08125 3.24375 3.24375C2.08125 4.40625 1.5 5.825 1.5 7.5C1.5 9.175 2.08125 10.5938 3.24375 11.7563C4.40625 12.9188 5.825 13.5 7.5 13.5V13.5M7.5 7.5V7.5V7.5V7.5V7.5V7.5V7.5V7.5V7.5V7.5' fill='%23D4C95E'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders a::before {
+background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.25 15C1.8375 15 1.48438 14.8531 1.19062 14.5594C0.896875 14.2656 0.75 13.9125 0.75 13.5V5.04375C0.525 4.90625 0.34375 4.72813 0.20625 4.50938C0.06875 4.29063 0 4.0375 0 3.75V1.5C0 1.0875 0.146875 0.734375 0.440625 0.440625C0.734375 0.146875 1.0875 0 1.5 0H13.5C13.9125 0 14.2656 0.146875 14.5594 0.440625C14.8531 0.734375 15 1.0875 15 1.5V3.75C15 4.0375 14.9312 4.29063 14.7937 4.50938C14.6562 4.72813 14.475 4.90625 14.25 5.04375V13.5C14.25 13.9125 14.1031 14.2656 13.8094 14.5594C13.5156 14.8531 13.1625 15 12.75 15H2.25V15M2.25 5.25V13.5V13.5V13.5H12.75V13.5V13.5V5.25H2.25V5.25M1.5 3.75H13.5V3.75V3.75V1.5V1.5V1.5H1.5V1.5V1.5V3.75V3.75V3.75V3.75M5.25 9H9.75V7.5H5.25V9V9M7.5 9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375' fill='%23D4C95E'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address a::before {
+background-image: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.4625 16.425V14.925C5.9 14.75 4.55937 14.1031 3.44062 12.9844C2.32188 11.8656 1.675 10.525 1.5 8.9625H0V7.4625H1.5C1.675 5.9 2.32188 4.55937 3.44062 3.44062C4.55937 2.32188 5.9 1.675 7.4625 1.5V0H8.9625V1.5C10.525 1.675 11.8656 2.32188 12.9844 3.44062C14.1031 4.55937 14.75 5.9 14.925 7.4625H16.425V8.9625H14.925C14.75 10.525 14.1031 11.8656 12.9844 12.9844C11.8656 14.1031 10.525 14.75 8.9625 14.925V16.425H7.4625ZM8.2125 13.4625C9.6625 13.4625 10.9 12.95 11.925 11.925C12.95 10.9 13.4625 9.6625 13.4625 8.2125C13.4625 6.7625 12.95 5.525 11.925 4.5C10.9 3.475 9.6625 2.9625 8.2125 2.9625C6.7625 2.9625 5.525 3.475 4.5 4.5C3.475 5.525 2.9625 6.7625 2.9625 8.2125C2.9625 9.6625 3.475 10.9 4.5 11.925C5.525 12.95 6.7625 13.4625 8.2125 13.4625Z' fill='%23D4C95E'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account a::before {
+background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 15C1.0875 15 0.734375 14.8531 0.440625 14.5594C0.146875 14.2656 0 13.9125 0 13.5V5.25C0 4.8375 0.146875 4.48438 0.440625 4.19063C0.734375 3.89688 1.0875 3.75 1.5 3.75H5.25V1.5C5.25 1.0875 5.39688 0.734375 5.69063 0.440625C5.98438 0.146875 6.3375 0 6.75 0H8.25C8.6625 0 9.01562 0.146875 9.30937 0.440625C9.60312 0.734375 9.75 1.0875 9.75 1.5V3.75H13.5C13.9125 3.75 14.2656 3.89688 14.5594 4.19063C14.8531 4.48438 15 4.8375 15 5.25V13.5C15 13.9125 14.8531 14.2656 14.5594 14.5594C14.2656 14.8531 13.9125 15 13.5 15H1.5V15M1.5 13.5H13.5V13.5V13.5V5.25V5.25V5.25H9.75V5.25C9.75 5.6625 9.60312 6.01562 9.30937 6.30937C9.01562 6.60312 8.6625 6.75 8.25 6.75H6.75C6.3375 6.75 5.98438 6.60312 5.69063 6.30937C5.39688 6.01562 5.25 5.6625 5.25 5.25V5.25H1.5V5.25V5.25V13.5V13.5V13.5V13.5M3 12H7.5V11.6625C7.5 11.45 7.44063 11.2531 7.32188 11.0719C7.20312 10.8906 7.0375 10.75 6.825 10.65C6.575 10.5375 6.32188 10.4531 6.06563 10.3969C5.80938 10.3406 5.5375 10.3125 5.25 10.3125C4.9625 10.3125 4.69062 10.3406 4.43437 10.3969C4.17812 10.4531 3.925 10.5375 3.675 10.65C3.4625 10.75 3.29688 10.8906 3.17812 11.0719C3.05937 11.2531 3 11.45 3 11.6625V12V12M9 10.875H12V9.75H9V10.875V10.875M5.25 9.75C5.5625 9.75 5.82812 9.64062 6.04688 9.42188C6.26562 9.20312 6.375 8.9375 6.375 8.625C6.375 8.3125 6.26562 8.04688 6.04688 7.82812C5.82812 7.60938 5.5625 7.5 5.25 7.5C4.9375 7.5 4.67188 7.60938 4.45312 7.82812C4.23438 8.04688 4.125 8.3125 4.125 8.625C4.125 8.9375 4.23438 9.20312 4.45312 9.42188C4.67188 9.64062 4.9375 9.75 5.25 9.75V9.75M9 8.625H12V7.5H9V8.625V8.625M6.75 5.25H8.25V1.5H6.75V5.25V5.25M7.5 9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375' fill='%23D4C95E'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.5 15C6.4625 15 5.4875 14.8031 4.575 14.4094C3.6625 14.0156 2.86875 13.4812 2.19375 12.8062C1.51875 12.1312 0.984375 11.3375 0.590625 10.425C0.196875 9.5125 0 8.5375 0 7.5C0 6.45 0.196875 5.47188 0.590625 4.56563C0.984375 3.65938 1.51875 2.86875 2.19375 2.19375L3.24375 3.24375C2.69375 3.79375 2.26562 4.43125 1.95938 5.15625C1.65313 5.88125 1.5 6.6625 1.5 7.5C1.5 9.175 2.08125 10.5938 3.24375 11.7563C4.40625 12.9188 5.825 13.5 7.5 13.5C9.175 13.5 10.5938 12.9188 11.7563 11.7563C12.9188 10.5938 13.5 9.175 13.5 7.5C13.5 6.6625 13.3469 5.88125 13.0406 5.15625C12.7344 4.43125 12.3063 3.79375 11.7563 3.24375L12.8062 2.19375C13.4812 2.86875 14.0156 3.65938 14.4094 4.56563C14.8031 5.47188 15 6.45 15 7.5C15 8.5375 14.8031 9.5125 14.4094 10.425C14.0156 11.3375 13.4812 12.1312 12.8062 12.8062C12.1312 13.4812 11.3375 14.0156 10.425 14.4094C9.5125 14.8031 8.5375 15 7.5 15V15M6.75 8.25V0H8.25V8.25H6.75V8.25' fill='%23D4C95E'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+/* --- 1. АКТИВНИЙ ЕЛЕМЕНТ / МАЙСТЕРНЯ (Dashboard / Помаранчевий стан) --- */
+.woocommerce-MyAccount-navigation ul li.is-active a {
+  background: #FE5F00;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  color: #FFFFFF;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard .is-active a::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.125 11.175L11.175 10.125C11.25 10.05 11.2875 9.9625 11.2875 9.8625C11.2875 9.7625 11.25 9.675 11.175 9.6L8.625 7.03125C8.675 6.89375 8.7125 6.75625 8.7375 6.61875C8.7625 6.48125 8.775 6.325 8.775 6.15C8.775 5.4375 8.52188 4.82812 8.01562 4.32188C7.50938 3.81563 6.9 3.5625 6.1875 3.5625C5.975 3.5625 5.7625 3.59062 5.55 3.64687C5.3375 3.70312 5.13125 3.78125 4.93125 3.88125L6.69375 5.64375L5.64375 6.69375L3.88125 4.93125C3.78125 5.13125 3.70312 5.3375 3.64687 5.55C3.59062 5.7625 3.5625 5.975 3.5625 6.1875C3.5625 6.9 3.81563 7.50938 4.32188 8.01562C4.82812 8.52188 5.4375 8.775 6.15 8.775C6.3125 8.775 6.46562 8.7625 6.60938 8.7375C6.75313 8.7125 6.89375 8.675 7.03125 8.625L9.6 11.175C9.675 11.25 9.7625 11.2875 9.8625 11.2875C9.9625 11.2875 10.05 11.25 10.125 11.175V11.175M7.5 15C6.4625 15 5.4875 14.8031 4.575 14.4094C3.6625 14.0156 2.86875 13.4812 2.19375 12.8062C1.51875 12.1312 0.984375 11.3375 0.590625 10.425C0.196875 9.5125 0 8.5375 0 7.5C0 6.4625 0.196875 5.4875 0.590625 4.575C0.984375 3.6625 1.51875 2.86875 2.19375 2.19375C2.86875 1.51875 3.6625 0.984375 4.575 0.590625C5.4875 0.196875 6.4625 0 7.5 0C8.5375 0 9.5125 0.196875 10.425 0.590625C11.3375 0.984375 12.1312 1.51875 12.8062 2.19375C13.4812 2.86875 14.0156 3.6625 14.4094 4.575C14.8031 5.4875 15 6.4625 15 7.5C15 8.5375 14.8031 9.5125 14.4094 10.425C14.0156 11.3375 13.4812 12.1312 12.8062 12.8062C12.1312 13.4812 11.3375 14.0156 10.425 14.4094C9.5125 14.8031 8.5375 15 7.5 15V15M7.5 13.5C9.175 13.5 10.5938 12.9188 11.7563 11.7563C12.9188 10.5938 13.5 9.175 13.5 7.5C13.5 5.825 12.9188 4.40625 11.7563 3.24375C10.5938 2.08125 9.175 1.5 7.5 1.5C5.825 1.5 4.40625 2.08125 3.24375 3.24375C2.08125 4.40625 1.5 5.825 1.5 7.5C1.5 9.175 2.08125 10.5938 3.24375 11.7563C4.40625 12.9188 5.825 13.5 7.5 13.5V13.5M7.5 7.5V7.5V7.5V7.5V7.5V7.5V7.5V7.5V7.5V7.5' fill='%23FFFFFF'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders .is-active a::before {
+background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.25 15C1.8375 15 1.48438 14.8531 1.19062 14.5594C0.896875 14.2656 0.75 13.9125 0.75 13.5V5.04375C0.525 4.90625 0.34375 4.72813 0.20625 4.50938C0.06875 4.29063 0 4.0375 0 3.75V1.5C0 1.0875 0.146875 0.734375 0.440625 0.440625C0.734375 0.146875 1.0875 0 1.5 0H13.5C13.9125 0 14.2656 0.146875 14.5594 0.440625C14.8531 0.734375 15 1.0875 15 1.5V3.75C15 4.0375 14.9312 4.29063 14.7937 4.50938C14.6562 4.72813 14.475 4.90625 14.25 5.04375V13.5C14.25 13.9125 14.1031 14.2656 13.8094 14.5594C13.5156 14.8531 13.1625 15 12.75 15H2.25V15M2.25 5.25V13.5V13.5V13.5H12.75V13.5V13.5V5.25H2.25V5.25M1.5 3.75H13.5V3.75V3.75V1.5V1.5V1.5H1.5V1.5V1.5V3.75V3.75V3.75V3.75M5.25 9H9.75V7.5H5.25V9V9M7.5 9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375' fill='%23FFFFFF'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address .is-active a::before {
+background-image: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.4625 16.425V14.925C5.9 14.75 4.55937 14.1031 3.44062 12.9844C2.32188 11.8656 1.675 10.525 1.5 8.9625H0V7.4625H1.5C1.675 5.9 2.32188 4.55937 3.44062 3.44062C4.55937 2.32188 5.9 1.675 7.4625 1.5V0H8.9625V1.5C10.525 1.675 11.8656 2.32188 12.9844 3.44062C14.1031 4.55937 14.75 5.9 14.925 7.4625H16.425V8.9625H14.925C14.75 10.525 14.1031 11.8656 12.9844 12.9844C11.8656 14.1031 10.525 14.75 8.9625 14.925V16.425H7.4625ZM8.2125 13.4625C9.6625 13.4625 10.9 12.95 11.925 11.925C12.95 10.9 13.4625 9.6625 13.4625 8.2125C13.4625 6.7625 12.95 5.525 11.925 4.5C10.9 3.475 9.6625 2.9625 8.2125 2.9625C6.7625 2.9625 5.525 3.475 4.5 4.5C3.475 5.525 2.9625 6.7625 2.9625 8.2125C2.9625 9.6625 3.475 10.9 4.5 11.925C5.525 12.95 6.7625 13.4625 8.2125 13.4625Z' fill='%23FFFFFF'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account .is-active a::before {
+background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 15C1.0875 15 0.734375 14.8531 0.440625 14.5594C0.146875 14.2656 0 13.9125 0 13.5V5.25C0 4.8375 0.146875 4.48438 0.440625 4.19063C0.734375 3.89688 1.0875 3.75 1.5 3.75H5.25V1.5C5.25 1.0875 5.39688 0.734375 5.69063 0.440625C5.98438 0.146875 6.3375 0 6.75 0H8.25C8.6625 0 9.01562 0.146875 9.30937 0.440625C9.60312 0.734375 9.75 1.0875 9.75 1.5V3.75H13.5C13.9125 3.75 14.2656 3.89688 14.5594 4.19063C14.8531 4.48438 15 4.8375 15 5.25V13.5C15 13.9125 14.8531 14.2656 14.5594 14.5594C14.2656 14.8531 13.9125 15 13.5 15H1.5V15M1.5 13.5H13.5V13.5V13.5V5.25V5.25V5.25H9.75V5.25C9.75 5.6625 9.60312 6.01562 9.30937 6.30937C9.01562 6.60312 8.6625 6.75 8.25 6.75H6.75C6.3375 6.75 5.98438 6.60312 5.69063 6.30937C5.39688 6.01562 5.25 5.6625 5.25 5.25V5.25H1.5V5.25V5.25V13.5V13.5V13.5V13.5M3 12H7.5V11.6625C7.5 11.45 7.44063 11.2531 7.32188 11.0719C7.20312 10.8906 7.0375 10.75 6.825 10.65C6.575 10.5375 6.32188 10.4531 6.06563 10.3969C5.80938 10.3406 5.5375 10.3125 5.25 10.3125C4.9625 10.3125 4.69062 10.3406 4.43437 10.3969C4.17812 10.4531 3.925 10.5375 3.675 10.65C3.4625 10.75 3.29688 10.8906 3.17812 11.0719C3.05937 11.2531 3 11.45 3 11.6625V12V12M9 10.875H12V9.75H9V10.875V10.875M5.25 9.75C5.5625 9.75 5.82812 9.64062 6.04688 9.42188C6.26562 9.20312 6.375 8.9375 6.375 8.625C6.375 8.3125 6.26562 8.04688 6.04688 7.82812C5.82812 7.60938 5.5625 7.5 5.25 7.5C4.9375 7.5 4.67188 7.60938 4.45312 7.82812C4.23438 8.04688 4.125 8.3125 4.125 8.625C4.125 8.9375 4.23438 9.20312 4.45312 9.42188C4.67188 9.64062 4.9375 9.75 5.25 9.75V9.75M9 8.625H12V7.5H9V8.625V8.625M6.75 5.25H8.25V1.5H6.75V5.25V5.25M7.5 9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375V9.375' fill='%23FFFFFF'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout .is-active a::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.5 15C6.4625 15 5.4875 14.8031 4.575 14.4094C3.6625 14.0156 2.86875 13.4812 2.19375 12.8062C1.51875 12.1312 0.984375 11.3375 0.590625 10.425C0.196875 9.5125 0 8.5375 0 7.5C0 6.45 0.196875 5.47188 0.590625 4.56563C0.984375 3.65938 1.51875 2.86875 2.19375 2.19375L3.24375 3.24375C2.69375 3.79375 2.26562 4.43125 1.95938 5.15625C1.65313 5.88125 1.5 6.6625 1.5 7.5C1.5 9.175 2.08125 10.5938 3.24375 11.7563C4.40625 12.9188 5.825 13.5 7.5 13.5C9.175 13.5 10.5938 12.9188 11.7563 11.7563C12.9188 10.5938 13.5 9.175 13.5 7.5C13.5 6.6625 13.3469 5.88125 13.0406 5.15625C12.7344 4.43125 12.3063 3.79375 11.7563 3.24375L12.8062 2.19375C13.4812 2.86875 14.0156 3.65938 14.4094 4.56563C14.8031 5.47188 15 6.45 15 7.5C15 8.5375 14.8031 9.5125 14.4094 10.425C14.0156 11.3375 13.4812 12.1312 12.8062 12.8062C12.1312 13.4812 11.3375 14.0156 10.425 14.4094C9.5125 14.8031 8.5375 15 7.5 15V15M6.75 8.25V0H8.25V8.25H6.75V8.25' fill='%23FFFFFF'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* --- 3. КНОПКА ВИХОДУ (Customer Logout) --- */
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a {
+  background: var(--color-gold);
+  color: var(--color-background-container);
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:hover {
+  background: #1E1C0E;
+}
+
+/* ==========================================
+   TACTICAL TERMINAL BRIEFING BOX (My Account Dashboard)
+   ========================================== */
+
+/* Контейнер вмісту облікового запису */
+.woocommerce-MyAccount-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.6rem;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 35.8rem;
+  background: #222012;
+  border-radius: 0.8rem;
+  box-sizing: border-box;
+  font-family: 'JetBrains Mono', monospace;
+  color: #CBC7B2;
+}
+
+/* Очищення базових відступів параграфів WooCommerce */
+.woocommerce-MyAccount-content > p {
+  margin: 0;
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  letter-spacing: 0.024rem;
+  color: #CBC7B2;
+}
+
+/* --- 1. ПРИВІТАННЯ КОРИСТУВАЧА (Greeting Row) --- */
+.woocommerce-MyAccount-content > p:first-of-type {
+  font-size: 1.4rem;
+  line-height: 2.3rem;
+  letter-spacing: 0.014rem;
+  color: #E9E2CC;
+}
+
+/* Виділення імені та логіна (strong) */
+.woocommerce-MyAccount-content > p:first-of-type strong {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: #D4C95E;
+}
+
+/* Посилання "Вийти" у привітанні */
+.woocommerce-MyAccount-content > p:first-of-type a {
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.024rem;
+  text-transform: uppercase;
+  color: #FE5F00;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.woocommerce-MyAccount-content > p:first-of-type a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* --- 2. ІНСТРУКЦІЇ ТА ПОСИЛАННЯ В ТЕКСТІ --- */
+.woocommerce-MyAccount-content > p:nth-of-type(2) {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  letter-spacing: 0.024rem;
+  color: #CBC7B2;
+}
+
+/* Навігаційні посилання всередині тексту (Замовлення, Адреси, Редагування) */
+.woocommerce-MyAccount-content > p:nth-of-type(2) a {
+  color: #D4C95E;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.woocommerce-MyAccount-content > p:nth-of-type(2) a:hover {
+  color: #FE5F00;
+}
+
+/* ==========================================
+   MY ACCOUNT ORDERS TABLE CARD LAYOUT (Figma Design)
+   ========================================== */
+
+/* --- 1. ГОЛОВНА ТАБЛИЦЯ ТА ПРИХОВУВАННЯ ТЕГІВ <thead> --- */
+table.woocommerce-MyAccount-orders {
+  display: flex !important;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 35.8rem;
+  border-collapse: collapse;
+  border: none !important;
+  margin: 0;
+  padding: 0 0 1.6rem 0;
+  box-sizing: border-box;
+}
+
+table.woocommerce-MyAccount-orders thead {
+  display: none !important; /* Приховуємо стандартні шапки колонки */
+}
+
+table.woocommerce-MyAccount-orders tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+/* --- 2. КАРТКА ОДНОГО ЗАМОВЛЕННЯ (Row Item) --- */
+table.woocommerce-MyAccount-orders tr.woocommerce-orders-table__row {
+  display: flex !important;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  background: #222012;
+  border-radius: 1.2rem;
+  padding: 1.6rem;
+  gap: 1.2rem;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border: none !important;
+}
+
+/* --- 3. НОМЕР ЗАМОВЛЕННЯ (Header Order Link) --- */
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-number,
+table.woocommerce-MyAccount-orders th.woocommerce-orders-table__cell-order-number {
+  display: flex !important;
+  align-items: center;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-number a,
+table.woocommerce-MyAccount-orders th.woocommerce-orders-table__cell-order-number a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.8rem;
+  background: rgba(212, 201, 94, 0.1);
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.08rem;
+  color: #D4C95E;
+  text-decoration: none;
+  border-radius: 0.4rem;
+}
+
+/* --- 4. ДАТА РЕЄСТРАЦІЇ (Date Row) --- */
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-date {
+  display: flex !important;
+  flex-direction: column;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-date::before {
+  content: "ДАТА РЕЄСТРАЦІЇ";
+  font-family: 'Liberation Serif', serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  letter-spacing: 0.045rem;
+  text-transform: uppercase;
+  color: #95917E;
+  display: block;
+}
+
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-date time {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.024rem;
+  color: #E9E2CC;
+  margin-top: 0.2rem;
+}
+
+/* --- 5. СТАТУС ЗАМОВЛЕННЯ (Status Overlay) --- */
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-status {
+  display: flex !important;
+  flex-direction: column;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-status::before {
+  content: "СТАТУС";
+  font-family: 'Liberation Serif', serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  letter-spacing: 0.045rem;
+  text-transform: uppercase;
+  color: #95917E;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Внутрішній чіп статусу */
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-status-text,
+table.woocommerce-MyAccount-orders tr.woocommerce-orders-table__row--status-processing td.woocommerce-orders-table__cell-order-status {
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  color: #FE5F00;
+}
+
+/* Стилізація бейджа статусу */
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-status {
+  align-self: flex-start;
+}
+
+/* --- 6. ФІНАНСОВИЙ ПІДСУМОК (Financial Total) --- */
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-total {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0 !important;
+  border: none !important;
+  background: transparent !important;
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: #CBC7B2;
+}
+
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-total .woocommerce-Price-amount {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.032rem;
+  color: #FE5F00;
+}
+
+/* --- 7. НАКЛАДНА / ТТН (TTN Waybill) --- */
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-mrkv_ua_ship_ttn-column {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem !important;
+  background: rgba(56, 53, 38, 0.6) !important;
+  border-radius: 0.4rem;
+  border: none !important;
+  font-family: 'Liberation Serif', serif;
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.024rem;
+  color: #CBC7B2;
+}
+
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-mrkv_ua_ship_ttn-column:empty::before {
+  content: "Очікує відправки";
+  font-family: 'Liberation Serif', serif;
+  font-size: 0.9rem;
+  color: #95917E;
+}
+
+/* --- 8. КНОПКА ДІЇ / ПЕРЕГЛЯД (Action Button) --- */
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-actions {
+  display: flex !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  margin-top: 0.4rem;
+}
+
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-actions a.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3.6rem;
+  padding: 1rem 1.6rem;
+  background: #D4C95E !important;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-radius: 0.4rem;
+  border: none !important;
+  font-family: 'Liberation Serif', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  color: #353100 !important;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  box-sizing: border-box;
+}
+
+table.woocommerce-MyAccount-orders td.woocommerce-orders-table__cell-order-actions a.button:hover {
+  opacity: 0.9;
+}
+
+.chehluha-my-account .woocommerce-info {
+  display: none;
+}
+
+/* ==========================================================
+   WooCommerce My Account: View Order (Tactical Dark Theme)
+   ========================================================== */
+
+/* Головний контейнер сторінки замовлення */
+.woocommerce-MyAccount-content {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
+    gap: 12px;
+    width: 100%;
+    max-width: 576px;
+    background: #161307;
+    border: 1px solid #3D392A;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+/* Інформаційне повідомлення про статус замовлення */
+.woocommerce-MyAccount-content > p:not(.woocommerce-customer-details--phone):not(.woocommerce-customer-details--email) {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 542px;
+    padding: 12px 16px;
+    margin: 0;
+    background: #1C190C;
+    border-left: 3px solid #FE5F00;
+    border-radius: 0px 4px 4px 0px;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-size: 13px;
+    line-height: 21px;
+    color: #D1CFC7;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Номер та дата замовлення всередині тексту */
+.woocommerce-MyAccount-content mark.order-number,
+.woocommerce-MyAccount-content mark.order-date {
+    background: transparent;
+    color: #FE5F00;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    padding: 0;
+}
+
+/* Бейдж статусу замовлення ("В обробці") */
+.woocommerce-MyAccount-content mark.order-status {
+    background: #988F2A;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.55px;
+    color: #100E04;
+}
+
+/* Секція деталізації замовлення */
+.woocommerce-order-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 0px 0px;
+    gap: 14px;
+    width: 100%;
+    max-width: 542px;
+    border-top: 1px dashed #332F22;
+    margin-top: 12px;
+}
+
+/* Заголовок секції з помаранчевим маркером */
+.woocommerce-order-details__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    width: 100%;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1.28px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.woocommerce-order-details__title::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 14px;
+    background: #FE5F00;
+    flex-shrink: 0;
+}
+
+/* Таблиця товарів */
+.woocommerce-table--order-details {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 542px;
+    background: #1A170D;
+    border: 1px solid #332F22;
+    border-radius: 6px;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.woocommerce-table--order-details thead tr {
+    display: flex;
+    width: 100%;
+    height: 38px;
+}
+
+.woocommerce-table--order-details th {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 12px;
+    background: #232013;
+    border-bottom: 1px solid #3D392A;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.88px;
+    text-transform: uppercase;
+    color: #A49E89;
+    margin: 0;
+}
+
+.woocommerce-table__product-name.product-name {
+    width: 63.5%;
+}
+
+.woocommerce-table__product-table.product-total,
+.woocommerce-table__product-total.product-total {
+    width: 36.5%;
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* Товари в тілі таблиці */
+.woocommerce-table--order-details tbody tr {
+    display: flex;
+    width: 100%;
+}
+
+.woocommerce-table--order-details tbody td {
+    box-sizing: border-box;
+    padding: 14px 12px;
+    border-bottom: 1px solid #282419;
+    margin: 0;
+}
+
+.woocommerce-table--order-details tbody td.product-name {
+    width: 63.5%;
+}
+
+.woocommerce-table--order-details tbody td.product-name a {
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.woocommerce-table--order-details tbody td.product-name a:hover {
+    color: #FE5F00;
+}
+
+.woocommerce-table--order-details tbody td.product-name .product-quantity {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 12px;
+    color: #FE5F00;
+    margin-left: 8px;
+}
+
+/* Мета-дані товару (варіанти) */
+.wc-item-meta {
+    list-style: none;
+    padding: 0 0 0 10px;
+    margin: 8px 0 0 0;
+    border-left: 2px solid #3D392A;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.wc-item-meta li {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-size: 11px;
+}
+
+.wc-item-meta-label {
+    font-weight: 400;
+    color: #8B846E;
+}
+
+.wc-item-meta p {
+    margin: 0;
+    font-weight: 700;
+    color: #D1CFC7;
+}
+
+.woocommerce-table--order-details tbody td.product-total {
+    width: 36.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+/* Підсумок таблиці (tfoot) */
+.woocommerce-table--order-details tfoot tr {
+    display: flex;
+    width: 100%;
+    height: 39px;
+}
+
+.woocommerce-table--order-details tfoot th {
+    width: 63.5%;
+    background: transparent;
+    border-bottom: 1px solid #232014;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 400;
+    font-size: 12px;
+    color: #9E9783;
+    text-transform: none;
+    letter-spacing: normal;
+    justify-content: center;
+}
+
+.woocommerce-table--order-details tfoot td {
+    box-sizing: border-box;
+    width: 36.5%;
+    padding: 10px 12px;
+    border-bottom: 1px solid #232014;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: right;
+    margin: 0;
+}
+
+.woocommerce-table--order-details tfoot tr:nth-child(2) td {
+    gap: 6px;
+}
+
+.shipped_via {
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 400;
+    font-size: 11px;
+    color: #8B846E;
+}
+
+/* Виділення рядка "Всього" (акцентний помаранчевий фон) */
+.woocommerce-table--order-details tfoot tr:nth-child(3) th,
+.woocommerce-table--order-details tfoot tr:nth-child(3) td {
+    background: rgba(254, 95, 0, 0.05);
+    color: #FE5F00;
+    font-size: 16px;
+    height: 45px;
+}
+
+.woocommerce-table--order-details tfoot tr:nth-child(3) th {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.65px;
+    text-transform: uppercase;
+}
+
+/* Спосіб оплати */
+.woocommerce-table--order-details tfoot tr:nth-child(4) th {
+    color: #9E9783;
+}
+.woocommerce-table--order-details tfoot tr:nth-child(4) td {
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+/* Секція адрес клієнта */
+.woocommerce-customer-details {
+    width: 100%;
+    max-width: 542px;
+    margin-top: 36px;
+    border-top: 1px dashed #332F22;
+    padding-top: 36px;
+}
+
+.woocommerce-columns--addresses{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+}
+
+
+
+.woocommerce-column,
+.woocommerce-Address {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 12px;
+    width: 50%;
+    background: #19160D;
+    border: 1px solid #332F22;
+    border-radius: 6px;
+}
+
+.woocommerce-Address {
+  width: 100%;
+}
+
+.woocommerce-column__title,
+.woocommerce-Address header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    width: 100%;
+    padding-bottom: 8px;
+    margin: 0;
+    border-bottom: 1px solid #2D291C;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.84px;
+    text-transform: uppercase;
+    color: #D8D4C5;
+}
+
+.woocommerce-Address header a {
+  display: block;
+  box-sizing: border-box;
+  font-family: 'Plex Mono';
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  background-color: var(--color-accent-orange);
+  color: var(--color-text-main);
+  width: fit-content;
+  text-transform: none;
+  align-items: center;
+  margin-left: 1.6rem;
+  border-radius: 0.4rem;
+}
+
+.woocommerce-Address header h2 {
+  margin: 0 !important;
+}
+
+.woocommerce-column__title::before,
+.woocommerce-Address header::before {
+    content: "■";
+    font-size: 10px;
+    color: #988F2A;
+}
+
+.woocommerce-column address,
+.woocommerce-Address address {
+    font-style: normal;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-size: 12px;
+    line-height: 19px;
+    color: #A49E89;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.woocommerce-customer-details--phone,
+.woocommerce-customer-details--email {
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: #E5E5DC;
+}
+
+/* Медіазапит для мобільних пристроїв */
+@media (max-width: 600px) {
+    .woocommerce-columns--addresses {
+        flex-direction: column;
+    }
+    .woocommerce-column {
+        width: 100%;
+    }
+}
+
+/* ==========================================================
+   WooCommerce My Account: Edit Address Form (Tactical Theme)
+   ========================================================== */
+/* Заголовок форми ("Адреса доставки / Платіжна адреса") */
+.woocommerce-MyAccount-content form[method="post"] h2,
+.woocommerce-MyAccount-content form[method="post"] h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px 0;
+    width: 100%;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1.28px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.woocommerce-MyAccount-content form[method="post"] h2::before,
+.woocommerce-MyAccount-content form[method="post"] h3::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 14px;
+    background: #FE5F00;
+    flex-shrink: 0;
+}
+
+/* Обгортка полів адреси */
+.woocommerce-address-fields {
+    width: 100%;
+}
+
+.woocommerce-address-fields__field-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 0;
+    width: 100%;
+}
+
+/* Загальні стилі для колонок полів (form-row) */
+.woocommerce-address-fields .form-row {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    width: 100%;
+}
+
+.woocommerce-address-fields .form-row-first,
+.woocommerce-address-fields .form-row-last {
+    width: calc(50% - 6px);
+}
+
+.woocommerce-address-fields .form-row-first {
+    margin-right: 12px;
+}
+
+/* Лейбли (Label) */
+.woocommerce-address-fields label {
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.88px;
+    text-transform: uppercase;
+    color: #A49E89;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.woocommerce-address-fields label .required {
+    color: #FE5F00;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.woocommerce-address-fields label .optional {
+    font-weight: 400;
+    color: #615A45;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 10px;
+}
+
+/* Обгортка інпутів */
+.woocommerce-address-fields .woocommerce-input-wrapper {
+    width: 100%;
+    display: block;
+}
+
+/* Текстові поля (Input / Select) */
+.woocommerce-address-fields input.input-text,
+.woocommerce-address-fields select:not(.select2-hidden-accessible) {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 8px 12px;
+    background: #1A170D;
+    border: 1px solid #332F22;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: #E5E5DC;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.woocommerce-address-fields input.input-text::placeholder {
+    color: #524C3A;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-size: 12px;
+}
+
+/* Фокус на полях */
+.woocommerce-address-fields input.input-text:focus,
+.woocommerce-address-fields select:not(.select2-hidden-accessible):focus {
+    border-color: #FE5F00;
+    box-shadow: 0 0 0 1px rgba(254, 95, 0, 0.3);
+}
+
+/* ==========================================================
+   Стилізація Select2 (Вибір області та країни)
+   ========================================================== */
+.woocommerce-address-fields .select2-container--default .select2-selection--single {
+    box-sizing: border-box;
+    height: 40px;
+    background: #1A170D;
+    border: 1px solid #332F22;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.woocommerce-address-fields .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #E5E5DC;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    padding-left: 12px;
+    padding-right: 30px;
+    line-height: 38px;
+}
+
+.woocommerce-address-fields .select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #524C3A;
+    font-family: 'Nimbus Mono PS', monospace;
+}
+
+.woocommerce-address-fields .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 38px;
+    right: 8px;
+}
+
+.woocommerce-address-fields .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #988F2A transparent transparent transparent;
+}
+
+.woocommerce-address-fields .select2-container--default.select2-container--open .select2-selection--single {
+    border-color: #FE5F00;
+}
+
+/* Випадаючий список Select2 (Dropdown) */
+.select2-dropdown {
+    background-color: #1A170D !important;
+    border: 1px solid #3D392A !important;
+    border-radius: 4px !important;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6) !important;
+}
+
+.select2-results__option {
+    font-family: 'Nimbus Mono PS', monospace !important;
+    font-size: 12px !important;
+    color: #D1CFC7 !important;
+    padding: 8px 12px !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option[aria-selected="true"] {
+    background-color: #282419 !important;
+    color: #FE5F00 !important;
+}
+
+.select2-search--dropdown .select2-search__field {
+    background-color: #161307 !important;
+    border: 1px solid #332F22 !important;
+    color: #E5E5DC !important;
+    font-family: 'Space Mono', monospace !important;
+    font-size: 12px !important;
+    border-radius: 2px !important;
+}
+
+/* ==========================================================
+   Кнопка відправки форми ("Зберегти адресу")
+   ========================================================== */
+.woocommerce-address-fields p button[type="submit"].button {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    margin-top: 16px;
+    background: #FE5F00;
+    border: 1px solid #FE5F00;
+    border-radius: 4px;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.woocommerce-address-fields p button[type="submit"].button:hover {
+    background: #E05400;
+    border-color: #E05400;
+    box-shadow: 0px 0px 12px rgba(254, 95, 0, 0.4);
+}
+
+.woocommerce-address-fields p button[type="submit"].button:active {
+    transform: translateY(1px);
+}
+
+/* Мобільна адаптація */
+@media (max-width: 540px) {
+    .woocommerce-address-fields .form-row-first,
+    .woocommerce-address-fields .form-row-last {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* ==========================================================
+   WooCommerce My Account: Edit Account Form (Tactical Theme)
+   ========================================================== */
+
+/* Очищення флоатів від дефолтного CSS WooCommerce */
+.woocommerce-MyAccount-content form.edit-account .clear {
+    display: none;
+}
+
+/* Загальні рядки полів (form-row) */
+.woocommerce-MyAccount-content form.edit-account .form-row {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    width: 100%;
+}
+
+.woocommerce-MyAccount-content form.edit-account .form-row-first,
+.woocommerce-MyAccount-content form.edit-account .form-row-last {
+    width: calc(50% - 6px);
+}
+
+.woocommerce-MyAccount-content form.edit-account .form-row-first {
+    margin-right: 12px;
+}
+
+/* Назви полів (Label) */
+.woocommerce-MyAccount-content form.edit-account label {
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.88px;
+    text-transform: uppercase;
+    color: #A49E89;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.woocommerce-MyAccount-content form.edit-account label .required {
+    color: #FE5F00;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Описовий текст під відображуваним ім'ям */
+.woocommerce-MyAccount-content form.edit-account span[id$="_description"] {
+    display: block;
+    margin-top: 2px;
+}
+
+.woocommerce-MyAccount-content form.edit-account span[id$="_description"] em {
+    font-style: normal;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-size: 11px;
+    line-height: 16px;
+    color: #8B846E;
+}
+
+/* Поля вводу (Input) */
+.woocommerce-MyAccount-content form.edit-account input.input-text {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 8px 12px;
+    background: #1A170D;
+    border: 1px solid #332F22;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: #E5E5DC;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.woocommerce-MyAccount-content form.edit-account input.input-text:focus {
+    border-color: #FE5F00;
+    box-shadow: 0 0 0 1px rgba(254, 95, 0, 0.3);
+}
+
+/* ==========================================================
+   Секція зміни пароля (Fieldset & Legend)
+   ========================================================== */
+
+.woocommerce-MyAccount-content form.edit-account legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.91px;
+    text-transform: uppercase;
+    color: #FE5F00;
+}
+
+/* Контейнер вводу пароля з кнопкою "показати пароль" */
+.woocommerce-MyAccount-content form.edit-account .password-input {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.woocommerce-MyAccount-content form.edit-account .password-input input.input-text {
+    padding-right: 40px;
+}
+
+/* Кнопка "показати/приховати пароль" */
+.woocommerce-MyAccount-content form.edit-account .show-password-input {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.woocommerce-MyAccount-content form.edit-account .show-password-input:hover {
+    opacity: 1;
+}
+
+/* Оформлення ока / псевдоелемента для ока */
+.woocommerce-MyAccount-content form.edit-account .show-password-input::after {
+    content: "👁";
+    font-size: 14px;
+    filter: grayscale(100%) invert(80%);
+}
+
+.woocommerce-MyAccount-content form.edit-account .show-password-input.display-password::after {
+    filter: grayscale(0%) sepia(100%) hue-rotate(-20deg) saturate(500%);
+}
+
+/* ==========================================================
+   Кнопка збереження змін
+   ========================================================== */
+.woocommerce-MyAccount-content form.edit-account p button[type="submit"].button {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    margin-top: 8px;
+    background: #FE5F00;
+    border: 1px solid #FE5F00;
+    border-radius: 4px;
+    font-family: 'Nimbus Mono PS', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.woocommerce-MyAccount-content form.edit-account p button[type="submit"].button:hover {
+    background: #E05400;
+    border-color: #E05400;
+    box-shadow: 0px 0px 12px rgba(254, 95, 0, 0.4);
+}
+
+.woocommerce-MyAccount-content form.edit-account p button[type="submit"].button:active {
+    transform: translateY(1px);
+}
+
+/* Адаптація для мобільних екранів */
+@media (max-width: 540px) {
+    .woocommerce-MyAccount-content form.edit-account .form-row-first,
+    .woocommerce-MyAccount-content form.edit-account .form-row-last {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+
+/* ==========================================================
+   WooCommerce Tactical Fixed Notices (Toast System)
+   ========================================================== */
+
+/* Головний фіксований плаваючий контейнер для сповіщень */
+.woocommerce-notices-wrapper {
+    position: fixed !important;
+    top: 24px;
+    left: 50% !important;
+    transform: translate(-50%, -150px) !important; /* Ховаємо за верхньою межею */
+    z-index: 999999 !important;
+    width: 90% !important;
+    max-width: 358px !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.3s ease;
+}
+
+/* Стан появи сповіщення */
+.woocommerce-notices-wrapper.is-visible {
+    transform: translate(-50%, 0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Стан плавного зникнення вгору */
+.woocommerce-notices-wrapper.is-fading {
+    transform: translate(-50%, -40px) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: transform 0.3s ease-in, opacity 0.25s ease-in !important;
+}
+
+/* Базовий стиль для плашок сповіщень (Message, Info, Error) */
+.woocommerce-notices-wrapper .woocommerce-message,
+.woocommerce-notices-wrapper .woocommerce-info,
+.woocommerce-notices-wrapper .woocommerce-error {
+    box-sizing: border-box !important;
+    margin: 0 0 10px 0 !important;
+    padding: 12px 16px !important;
+    background-color: #1A170D !important;
+    border: 1px solid #3D392A !important;
+    border-left: 4px solid #FE5F00 !important;
+    border-radius: 4px !important;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.6) !important;
+    font-family: 'Nimbus Mono PS', monospace !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+    font-weight: 400 !important;
+    color: #E5E5DC !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+}
+
+/* Прибираємо базові маркери списків у помилках WooCommerce */
+.woocommerce-notices-wrapper .woocommerce-error {
+    list-style: none !important;
+}
+
+.woocommerce-notices-wrapper .woocommerce-error li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Іконки для сповіщень (Data URI SVG) */
+.woocommerce-notices-wrapper .woocommerce-message::before,
+.woocommerce-notices-wrapper .woocommerce-info::before,
+.woocommerce-notices-wrapper .woocommerce-error::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    margin-right: 12px !important;
+    flex-shrink: 0 !important;
+}
+
+/* 1. Успіх (Помаранчевий маркер + галочка) */
+.woocommerce-notices-wrapper .woocommerce-message {
+    border-left-color: #FE5F00 !important;
+}
+.woocommerce-notices-wrapper .woocommerce-message::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.5 11.5L3 8L4.06 6.94L6.5 9.38L11.94 3.94L13 5L6.5 11.5Z' fill='%23FE5F00'/%3E%3C/svg%3E") !important;
+}
+
+/* 2. Помилка (Червоний маркер + хрестик) */
+.woocommerce-notices-wrapper .woocommerce-error {
+    border-left-color: #FF5252 !important;
+    background-color: #1E1212 !important; /* Легкий темнувато-червоний підтон */
+}
+.woocommerce-notices-wrapper .woocommerce-error::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 4.8075L11.1925 4L8 7.1925L4.8075 4L4 4.8075L7.1925 8L4 11.1925L4.8075 12L8 8.8075L11.1925 12L12 11.1925L8.8075 8L12 4.8075Z' fill='%23FF5252'/%3E%3C/svg%3E") !important;
+}
+
+/* 3. Інфо / Повідомлення (Золотий маркер + знак знаку) */
+.woocommerce-notices-wrapper .woocommerce-info {
+    border-left-color: #988F2A !important;
+}
+.woocommerce-notices-wrapper .woocommerce-info::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.25 11.5H8.75V7H7.25V11.5ZM8 5.5C8.2125 5.5 8.39062 5.42812 8.53437 5.28437C8.67812 5.14062 8.75 4.9625 8.75 4.75C8.75 4.5375 8.67812 4.35938 8.53437 4.21562C8.39062 4.07188 8.2125 4 8 4C7.7875 4 7.60938 4.07188 7.46563 4.21562C7.32188 4.35938 7.25 4.5375 7.25 4.75C7.25 4.9625 7.32188 5.14062 7.46563 5.28437C7.60938 5.42812 7.7875 5.5 8 5.5Z' fill='%23988F2A'/%3E%3C/svg%3E") !important;
+}
+
+/* Кнопка дії всередині сповіщення (наприклад, "Відмінити", "Переглянути кошик") */
+.woocommerce-notices-wrapper .woocommerce-message a.restore-item,
+.woocommerce-notices-wrapper .woocommerce-message a.button,
+.woocommerce-notices-wrapper .woocommerce-info a.button,
+.woocommerce-notices-wrapper .woocommerce-error a.button {
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 0 auto !important; /* Відсуває кнопку праворуч */
+    padding: 4px 10px !important;
+    background-color: #282419 !important;
+    border: 1px solid #3D392A !important;
+    border-radius: 2px !important;
+    font-family: 'Space Mono', monospace !important;
+    font-size: 11px !important;
+    line-height: 16px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: #D1CFC7 !important;
+    text-decoration: none !important;
+    float: none !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message a.restore-item:hover,
+.woocommerce-notices-wrapper .woocommerce-message a.button:hover,
+.woocommerce-notices-wrapper .woocommerce-info a.button:hover,
+.woocommerce-notices-wrapper .woocommerce-error a.button:hover {
+    background-color: #FE5F00 !important;
+    border-color: #FE5F00 !important;
+    color: #000000 !important;
+    box-shadow: 0px 0px 8px rgba(254, 95, 0, 0.4) !important;
+}
+
+}
